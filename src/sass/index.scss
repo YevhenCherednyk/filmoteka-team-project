@@ -1,2 +1,22 @@
-@import './common';
-@import './example';
+// utils
+@import './utils/variables';
+@import './utils/visually-hidden';
+
+// base
+@import './base/reset';
+@import './base/typography';
+@import './base/common';
+
+//components
+@import './components/button';
+@import './components/modal-one-film';
+@import './components/modal-team';
+
+// layout
+@import './layout/header-main';
+@import './layout/container-main';
+@import './layout/header-library';
+@import './layout/container-library';
+@import './layout/paginatio';
+@import './layout/spinner';
+@import './layout/footer';
