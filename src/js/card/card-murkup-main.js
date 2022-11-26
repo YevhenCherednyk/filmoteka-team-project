@@ -1,5 +1,6 @@
 export default function markupCard(data) {
   // Хочу зробити деструктуризацію змінних. потрібно знати який обєкт буде приходити
+
   const card = data
     .map(
       ({
@@ -8,11 +9,11 @@ export default function markupCard(data) {
         name,
         genre,
       }) =>
-        `      <li class="films-list__item" data-id=${id}>
+        `<li class="films-list__item" data-id="${id}">
         <div class="wrapper">
             <img
-              src=${src}
-              alt=${name}
+              src="${src}"
+              alt="${name}"
             />
           </div>
           <div class="text-wrapper">
