@@ -1,53 +1,29 @@
 :root {
   // fonts
-  --font-f__main: "DM Sans";
-  --font-f__secondary: "Titan One";
-  --font-w__main: 500;
-  --font-s__main: 16px;
+  --main-font: 'Roboto';
 
   // color
-  --color__w: #FFFFFF;
-  --color__b: #000000;
-  --color__accent-first: #D41443;
-  --color__accent-second: #FFA5BA;
+  --accent: #ff6b08;
+  --secondary: #545454;
 
-  --color__btn-hover-bg: #ECEBEB;
-  --color__btn-hover-bg2: rgba(212, 20, 67, 0.8);
-  // --color__btn-hover-bg2: #b5101b;
-  --color__btn-location-bg: #D41342;
+  --light-txt-color: #ffffff;
+  --dark-txt-color: #000000;
+  --attention-txt-color: #ff001b;
+  --card-inform-txt-color: #8c8c8c;
 
-  --color__line: #E1E1E1;
-  --color__socials: #FEA5BB;
 
-  --color__mob-menu-line: #E18298;
-  --color__mob-menu-bg: #E17992;
-
-  --color__products-1: #FFB8CA;
-  --color__products-2: #F0D1A5;
-  --color__products-3: #C2E297;
-
-  --color__rewiers-dots: #C7133E;
-  --color__rewiers-dots-slick: #D9D9D9;
-  --color__rewiers-desc-bg: #FAFAFA;
-  --color__icon-home: #D31342;
-
-  --color__contact: #907E82;
-  
-  --color__footer-bg: #FFF5F6;
-
-  // flex
-  --flex__jc: center;
+  --header-background-color: rgba(0, 0, 0, 0.56);
+  --footer-background-color: #f7f7f7;
+  --arrow-pagination-color: #f7f7f7;
 
   // sizes
-  --section__padding: 60px;
-  --border-radius__main: 24px;
+  --section_mobile__padding: 40px;
+  --section_mobile__padding: 40px;
 
   // card set var
   --items: 1;
   --gap: 20px;
 
   // transition
-  --main__transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition__scroll: 1000ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition__hover: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }

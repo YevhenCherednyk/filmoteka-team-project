@@ -1,19 +1,33 @@
-* {
-  padding: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
-  border: 0;
+  padding: 0;
 }
 
-ol,
 ul {
+  padding: 0;
+  margin: 0;
   list-style: none;
 }
 
 a {
   text-decoration: none;
+  font-style: normal;
+  color: currentColor;
 }
 
-:active,
-:focus {
-  outline: 0;
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a,
+button {
+  cursor: pointer;
 }

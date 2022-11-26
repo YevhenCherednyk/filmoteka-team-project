@@ -1,0 +1,14 @@
+/* flex-box grid */
+
+.card-set {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(-1 * var(--indent) / 2);  
+}
+
+.card-set__item {
+    flex-basis: calc((100% - var(--gap) * (var(--items) - 1)) / var(--items));;
+}
+
+
+
