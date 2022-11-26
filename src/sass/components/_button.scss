@@ -1,0 +1,22 @@
+.modal_btn {
+    width: 136px;
+    height: 44px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    border: black, 1px;
+    border-radius: 5px;
+    color: black;
+    background-color: #ffffff;
+}
+
+.modal_btn:hover,
+.modal_btn:focus {
+    color: var(--light-txt-color);
+    background-color: #ff6b01;
+    border: #ff6b01;
+}

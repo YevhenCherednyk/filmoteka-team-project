@@ -1,0 +1,111 @@
+.backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+/* .backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+} */
+
+/* .backdrop.is-hidden .modal_movie {
+  transform: translate(-50%, -50%) scale(0.5);
+} */
+
+.modal_movie {
+    background-color: #ffffff;
+    z-index: 5;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+
+    display: flex;
+    gap: 16px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 40px 12px;
+}
+
+.btn-close {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+
+    width: 40px;
+    height: 40px;
+
+    background-color: transparent;
+    border: 0;
+}
+
+.modal_posterbox {
+    width: 375px;
+    height: 478px;
+}
+
+.modal_poster {
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 391px;
+}
+
+.modal-info_title {
+    text-transform: uppercase;
+}
+
+.modal-info_table {
+    width: 391px;
+}
+
+th {
+    width: 150px;
+    color: #8c8c8c;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+}
+
+td {
+    text-align: left;
+}
+
+.modal-table_vote {
+    width: 36px;
+    height: 16px;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #ff6b01;
+}
+
+.modal-info_about {
+    text-transform: uppercase;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.modal_btnbox {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: auto;
+}
