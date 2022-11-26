@@ -1,0 +1,166 @@
+.backdrop {
+  display: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  font-family: var(--main-font), sans-serif;
+  background-color: rgba($color: #ff6b08, $alpha: 0.1);
+  overflow: hidden;
+  text-align: center;
+}
+
+.backdrop.is-open {
+  display: block;
+}
+
+.loading {
+  color: var(--accent);
+  text-align: center;
+}
+
+.loading-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5em;
+
+  width: 4em;
+  height: 4em;
+  line-height: 4em;
+
+  span {
+    display: block;
+  }
+
+  span:after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    background-color: var(--dark-txt-color);
+    transform-origin: 50% 50%;
+    border-radius: 50%;
+  }
+
+  .dot-1:after {
+    width: 0.2em;
+    height: 0.2em;
+    right: 0.25em;
+    top: -0.45em;
+    transform: rotate(-62deg);
+
+    animation: glow 1.4s 0.125s infinite;
+  }
+
+  .dot-2:after {
+    width: 0.3em;
+    height: 0.3em;
+    right: -0.95em;
+    top: 0.45em;
+    transform: rotate(-32deg);
+
+    animation: glow 1.4s 0.25s infinite;
+  }
+
+  .dot-3:after {
+    width: 0.4em;
+    height: 0.4em;
+    right: -1.55em;
+    top: 2.05em;
+
+    animation: glow 1.4s 0.375s infinite;
+  }
+
+  .dot-4:after {
+    width: 0.6em;
+    height: 0.6em;
+    right: -1.35em;
+    top: 3.65em;
+    transform: rotate(31deg);
+
+    animation: glow 1.4s 0.5s infinite;
+  }
+
+  .dot-5:after {
+    width: 0.7em;
+    height: 0.7em;
+    right: -0.35em;
+    top: 4.85em;
+    transform: rotate(59deg);
+
+    animation: glow 1.4s 0.625s infinite;
+  }
+
+  .dot-6:after {
+    width: 0.8em;
+    height: 0.8em;
+    right: 1.25em;
+    top: 5.45em;
+    transform: rotate(90deg);
+
+    animation: glow 1.4s 0.75s infinite;
+  }
+
+  .dot-7:after {
+    width: 1em;
+    height: 1em;
+    right: 2.85em;
+    top: 5.05em;
+    transform: rotate(-62deg);
+
+    animation: glow 1.4s 0.875s infinite;
+  }
+
+  .dot-8:after {
+    width: 1.2em;
+    height: 1.2em;
+    right: 4.45em;
+    top: 3.75em;
+    transform: rotate(-40deg);
+
+    animation: glow 1.4s 1s infinite;
+  }
+
+  .dot-9:after {
+    width: 1.3em;
+    height: 1.3em;
+    right: 5.15em;
+    top: 1.65em;
+
+    animation: glow 1.4s 1.125s infinite;
+  }
+
+  .dot-10:after {
+    width: 1.4em;
+    height: 1.4em;
+    right: 4.65em;
+    top: -0.55em;
+    transform: rotate(31deg);
+
+    animation: glow 1.4s 1.25s infinite;
+  }
+
+  .dot-11:after {
+    width: 1.5em;
+    height: 1.5em;
+    right: 3.05em;
+    top: -2.05em;
+    transform: rotate(59deg);
+
+    animation: glow 1.4s 1.375s infinite;
+  }
+}
+
+@keyframes glow {
+  0% {
+    background-color: var(--accent);
+  }
+
+  100% {
+    background-color: var(--dark-txt-color);
+  }
+}
