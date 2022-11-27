@@ -1,6 +1,7 @@
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '19011014b9b53c4fd496d37c25f2b619';
-import libraryCardMarkup from '../library-card/library-card';
+// import libraryCardMarkup from '../library-card/library-card';
+import markupCard from '../card/card-murkup-main';
 
 export class getTrendingMovies {
   constructor() {
@@ -52,7 +53,7 @@ async function markupRenderer() {
   const trendings = await GetMovies.searchTrendingFilms();
   console.log(trendings);
   console.log(genres);
-  const markup = libraryCardMarkup(trendings.results, genres);
+  const markup = markupCard(trendings.results, genres);
   container.insertAdjacentHTML('beforeend', markup);
 }
 

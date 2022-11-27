@@ -52,7 +52,21 @@
 
 .films-list__text {
   display: flex;
-  align-items: baseline;
   justify-content: flex-start;
+  align-items: flex-start;
   color: var(--accent);
+}
+
+
+
+.films-list__ganre{
+  max-width: 250px;
+}
+
+.release-date {
+  margin-left: 10px;
+}
+
+.films-list__ganre {
+  margin-right: 10px;
 }
