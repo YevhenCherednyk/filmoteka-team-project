@@ -1,11 +1,13 @@
-.backdrop {
+.spinner-backdrop {
   display: none;
 
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  z-index: 999;
+
+  width: 100%;
+  height: 100%;
 
   font-family: var(--main-font), sans-serif;
   background-color: rgba($color: #ff6b08, $alpha: 0.1);
@@ -13,7 +15,7 @@
   text-align: center;
 }
 
-.backdrop.is-open {
+.spinner-backdrop.is-open {
   display: block;
 }
 
