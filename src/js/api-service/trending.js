@@ -7,5 +7,5 @@ function getTrendingMovies() {
             return response.json();
         })
 };
-console.log('hello')
+
 export default getTrendingMovies;
