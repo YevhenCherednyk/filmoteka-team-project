@@ -7,6 +7,7 @@
     padding-top: 40px;
   }
 }
+
 .logo {
   font-size: 30px;
   line-height: 35px;
@@ -60,14 +61,22 @@
   background: var(--attention-txt-color)
 }
 
+.form-thumb {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding-bottom: 20px;
+}
+
 .search-form {
   position: relative;
 
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-bottom: 44px;
 }
 
 .form__input {
@@ -78,10 +87,8 @@
   display: block;
   background: transparent;
   outline: none;
+  border: none;
   border-bottom: 0.5px solid var(--light-txt-color);
-  border-top: transparent;
-  border-left: transparent;
-  border-right: transparent;
   padding: 0;
   padding-bottom: 4px;
   color: greenyellow;
@@ -93,6 +100,7 @@
     width: 394px;
   }
 }
+
 .form__input::placeholder {
   color: var(--light-txt-color);
   font-family: 'Roboto';
@@ -108,8 +116,10 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
+  padding-bottom: 45px;
 
-  color: var(--attention-txt-color)
+
+  color: var(--attention-txt-color);
 
   //   visibility: hidden;
 
@@ -118,13 +128,24 @@
   }
 }
 
+
 .search-bth {
   position: absolute;
+  display: inline-block;
 
   background-color: transparent;
   border: none;
-  bottom: 74.3%;
-  right: 33.4%;
+  top: 0;
+  right: -6px;
+}
+
+.serch-icon {
+  position: absolute;
+  
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
 }
 
 .header-bgr {
