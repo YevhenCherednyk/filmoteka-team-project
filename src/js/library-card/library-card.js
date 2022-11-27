@@ -1,32 +1,7 @@
-export default function libraryCardMarkup(data) {
-  // Змінні у деструктуризації привести у відповідність до отриманих з  АРІ
+import findGenres from '../all-genres/find-genres';
+import dateOptimizer from './date-optimizer';
 
-  const card = data
-    .map(
-      ({
-        id,
-        name,
-        genre,
-        rating,
-        src = '../images/сard-films/movie-poster-coming-soon.jpg',
-      }) => `<li class="films-list__item" data-id="${id}">
-  <div class="wrapper">
-    <img src="${src}" alt="${name}" />
-  </div>
-  <div class="text-wrapper">
-    <h2 class="films-list__title">${name}</h2>
-    <p class="films-list__text">
-      ${genre}<span class="films-rating">${rating}</span>
-    </p>
-  </div>
-</li>`
-    )
-    .join('');
-  return card;
-}
-export function libraryCardMarkup(data, genres) {
-  // Змінні у деструктуризації привести у відповідність до отриманих з  АРІ
-  // console.log(genres.genres[0].id);
+export default function libraryCardMarkup(data, genres) {
   const card = data
     .map(
       ({
@@ -48,7 +23,7 @@ export function libraryCardMarkup(data, genres) {
                 </div>
                 <div class="text-wrapper">
                     <h2 class="films-list__title">${optimizer(title, name)}</h2>
-                    <p class="films-list__text"><span>${findGenres(
+                    <p class="films-list__text"><span class="films-list__ganre">${findGenres(
                       genres,
                       genre_ids
                     )}</span> &#10072; <span class="release-date">${dateOptimizer(
@@ -62,42 +37,4 @@ export function libraryCardMarkup(data, genres) {
     )
     .join('');
   return card;
-}
-
-function findGenres(genres, genreIds) {
-  const genresArray = [];
-
-  for (let id of genreIds) {
-    let item = genres.genres.find(genre => genre.id === id);
-    if (item == undefined) {
-      continue;
-    } else {
-      genresArray.push(item.name);
-    }
-  }
-
-  if (genresArray.length === 0) {
-    genresArray.push('Other');
-  }
-
-  if (genresArray.length > 3) {
-    return [genresArray[0], genresArray[1], 'Other'].join(', ');
-  }
-  return genresArray.join(', ');
-}
-
-function optimizer(title, name) {
-  if (title) {
-    return title;
-  }
-
-  return name;
-}
-
-function dateOptimizer(releaseDate, firstDate) {
-  if (releaseDate) {
-    return releaseDate.slice(0, 4);
-  }
-
-  return firstDate.slice(0, 4);
 }
