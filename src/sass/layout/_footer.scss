@@ -1,0 +1,66 @@
+@keyframes beat {
+    40% {
+        transform: scale(0.95);
+    }
+}
+
+.footer {
+    width: 100vw;
+    background-color: var(--footer-background-color);
+}
+
+.footer__container {
+    // width: 100%;
+    // margin: 0 auto;
+    // padding-left: 20px;
+    // padding-right: 20px;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    text-align: center;
+    color: var(--secondary);
+
+    padding-top: 29px;
+    padding-bottom: 29px;
+
+
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+        justify-content: center;
+
+        font-size: 16px;
+
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+.footer__text {
+    margin-bottom: 10px;
+
+    @media screen and (min-width: 768px) {
+        margin: 0;
+    }
+}
+
+.footer-developers--link {
+    text-decoration: underline;
+}
+
+.footer__icon{
+    fill: var(--accent);
+    margin: 0 5px;
+
+    animation-name: beat;
+    animation-duration: 1.2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    transform: scale(1.8);
+}
+
+.footer-developers--link:hover, .footer-developers--link:focus {
+    color: var(--accent);
+}
