@@ -1,6 +1,3 @@
-import findGenres from '../all-genres/find-genres';
-import dateOptimizer from './date-optimizer';
-
 export default function libraryCardMarkup(data, genres) {
   const card = data
     .map(
