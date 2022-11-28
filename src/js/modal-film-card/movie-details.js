@@ -1,15 +1,14 @@
-import './vketov';
 import API from '../api-service/fetch-movie-details';
 
 const refs = {
   filmList: document.querySelector(".films-list"),
   backdrop: document.querySelector("[data-modal]"),
-  modal: document.querySelector(".render-movie"),
+  modal: document.querySelector(".modal_movie"),
   modalCloseBtn: document.querySelector("button.btn-close")
 };
 
-export let dataMovie = {};
-console.log("dataMovie", dataMovie);
+let dataMovie = {};
+console.log("(синхр код) спочатку dataMovie: ", dataMovie)
 
 refs.filmList.addEventListener("click", onListClick);
 refs.modalCloseBtn.addEventListener("click", toggleModal);
@@ -25,12 +24,20 @@ function onListClick(e) {
   API.fetchMovieDetails(currentMovieId)
   .then(res => {
     renderMovieDetailsMarkup(createMovieDetailsMarkup(res));
-    dataMovie = res;
-    console.log("dataMovie", dataMovie);
+    exportMovieDeatails(res);
     })
   .catch(onFetchError);
   
   toggleModal();
+  console.log("(синхр код) зараз dataMovie: ", dataMovie);
+
+  setTimeout(() => {console.log("(асинхр код) тепер dataMovie: ", dataMovie);}, 1000);
+}
+
+function exportMovieDeatails(res) {
+  dataMovie = res;
+  console.log(dataMovie);
+  return dataMovie;
 }
 
 function createMovieDetailsMarkup(res) {
@@ -74,9 +81,13 @@ function createMovieDetailsMarkup(res) {
       <h3 class="modal-info_about">About</h3>
       <p>${overview}</p>
       <div class="modal_btnbox">
-        <button id="#" class="modal_btn" type="button">add to Watched</button>
-        <button id="#" class="modal_btn" type="button">add to queue</button>
-      </div>
+          <button id="watched" class="modal_btn" type="button">
+            add to Watched
+          </button>
+          <button id="queue" class="modal_btn" type="button">
+            add to Queue
+          </button>
+        </div>
     </div>
   `;
 }
@@ -92,4 +103,4 @@ function onFetchError(error) {
 function toggleModal() {
   document.body.classList.toggle("modal-is-open")
   refs.backdrop.classList.toggle("is-hidden");
-}
+} 
