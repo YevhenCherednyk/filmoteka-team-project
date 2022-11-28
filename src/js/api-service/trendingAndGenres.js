@@ -7,9 +7,10 @@ import markupCard from '../card/card-murkup-main';
 import paginationManager from '../pagination/paginationManager';
 // ====== Добавил Толик Шулика =========
 
-export class getTrendingMovies {
+export class GetTrendingMovies {
   constructor() {
     this.page = 1;
+    this.searchQuery = '';
   }
 
   async searchTrendingFilms() {
@@ -34,6 +35,18 @@ export class getTrendingMovies {
     }
   }
 
+  async fetchMovieSearch() {
+    try {
+      const response = await fetch(
+        `${BASE_URL}search/movie?api_key=${API_KEY}&query=${this.searchQuery}&page=${this.page}`
+      );
+      const searchedMovies = await response.json();
+      return searchedMovies;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   pageIncrement() {
     this.page += 1;
   }
@@ -53,13 +66,22 @@ export class getTrendingMovies {
   get currentPage() {
     return this.page;
   }
+
+  get query() {
+    return this.searchQuery;
+  }
+
+  set query(newQuery) {
+    this.searchQuery = newQuery;
+  }
 }
 
-const GetMovies = new getTrendingMovies();
+const GetMovies = new GetTrendingMovies();
+
 const container = document.querySelector('.films-list');
 window.addEventListener('load', () => {
   spinnerControls.showSpinner();
-  setTimeout(markupRenderer, 1000);
+  setTimeout(markupRenderer, 500);
 });
 
 async function markupRenderer() {
@@ -76,4 +98,4 @@ async function markupRenderer() {
   spinnerControls.hideSpinner();
 }
 
-export default getTrendingMovies;
+export default GetTrendingMovies;
