@@ -1,9 +1,9 @@
-function showSpinner(selector) {
-  document.querySelector(selector).classList.add('is-open');
+function showSpinner() {
+  document.querySelector('.spinner-backdrop').classList.add('is-open');
 }
 
-function hideSpinner(selector) {
-  document.querySelector(selector).classList.remove('is-open');
+function hideSpinner() {
+  document.querySelector('.spinner-backdrop').classList.remove('is-open');
 }
 
 export default { showSpinner, hideSpinner };
