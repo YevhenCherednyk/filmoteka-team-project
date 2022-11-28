@@ -83,7 +83,6 @@
   width: 100%;
   max-width: 394px;
 
-  /* width: 394px; */
   display: block;
   background: transparent;
   outline: none;
@@ -91,7 +90,7 @@
   border-bottom: 0.5px solid var(--light-txt-color);
   padding: 0;
   padding-bottom: 4px;
-  color: greenyellow;
+  color: var(--accent);
 
   @media screen and(min-width: 768px) {
     width: 336px;
@@ -121,8 +120,6 @@
 
   color: var(--attention-txt-color);
 
-  //   visibility: hidden;
-
   &--topPad {
     padding-top: 20px;
   }
@@ -149,8 +146,8 @@
 }
 
 .header-bgr {
-  // background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
   background-image: linear-gradient(
       to right,
       rgba(47, 48, 58, 0.4),
