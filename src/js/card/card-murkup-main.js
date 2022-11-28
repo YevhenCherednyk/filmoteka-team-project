@@ -15,7 +15,7 @@ export default function markupCard(data, genres) {
         poster_path = '../images/сard-films/movie-poster-coming-soon.jpg',
       }) => {
         return `<li class="films-list__item" data-id="${id}">
-                    <img class="films-list__img" src="http://image.tmdb.org/t/p/w500${poster_path}" alt="${titleOptimizer(
+                    <img class="films-list__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${titleOptimizer(
           title,
           name
         )}" />
