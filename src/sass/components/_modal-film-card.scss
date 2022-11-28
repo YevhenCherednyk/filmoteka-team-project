@@ -8,21 +8,22 @@
     height: 100vh;
 
     background-color: rgba(0, 0, 0, 0.25);
+    // background-color: red;
   }
 
-.backdrop.is-hidden {
-visibility: hidden;
-opacity: 0;
-pointer-events: none;
-}
+// .backdrop.is-hidden {
+// visibility: hidden;
+// opacity: 0;
+// pointer-events: none;
+// }
 
 // .backdrop.is-hidden .modal_movie {
 // transform: translate(-50%, -50%) scale(0.5);
 // }
 
-.modal_movie {
-    background-color: #ffffff;
-    // background-color: #ff6b01;
+
+.modal-box {
+    background-color: var(--light-txt-color);
     z-index: 5;
     margin-left: auto;
     margin-right: auto;
@@ -34,17 +35,13 @@ pointer-events: none;
     transform: translate(-50%, -50%) scale(1);
         
     display: flex;
-    flex-direction: column;
-    gap: 20px;
 
     @media screen and (min-width: 768px) {
-        gap: 68px;
         padding: 40px 40px;
         flex-direction:row;
-        }
+    }
 
-    @media screen and (min-width: 1024px) {
-        gap: 16px;
+    @media screen and (min-width: 1280px) {
         padding: 40px 36px;
     }    
 }
@@ -61,6 +58,21 @@ pointer-events: none;
     border: 0;
 }
 
+.modal_movie {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media screen and (min-width: 768px) {
+        gap: 68px;
+        flex-direction: row;
+    }
+
+    @media screen and (min-width: 1280px) {
+        gap: 16px;
+    }
+}
+
 .modal_posterbox {
     margin: 0 auto;
 
@@ -72,7 +84,7 @@ pointer-events: none;
         height: 374px;
     }   
     
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1280px) {
         min-width: 375px;
         height: 478px;
     }
@@ -94,7 +106,7 @@ pointer-events: none;
         width: 368px;  
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1280px) {
         width: 391px;      
     }
 }
@@ -110,20 +122,20 @@ pointer-events: none;
         width: 368px;
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1280px) {
         width: 391px;
     }
 }
 
 th {
     width: 120px;
-    color: #8c8c8c;
+    color: var(--card-inform-txt-color);
     text-align: left;
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1280px) {
         width: 150px;
     }
 }
@@ -136,8 +148,8 @@ td {
     width: 36px;
     height: 16px;
     border-radius: 5px;
-    color: #ffffff;
-    background-color: #ff6b01;
+    color: var(--light-txt-color);
+    background-color: var(--btn-background-color);
 }
 
 .modal-info_about {
@@ -161,7 +173,7 @@ td {
         width: 125px;
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1280px) {
         width: 136px;
     }
 }
