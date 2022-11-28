@@ -2,42 +2,39 @@ import './vketov';
 import API from '../api-service/fetch-movie-details';
 
 const refs = {
-  filmCardItem: document.querySelector('.films-list__item'),
+  filmList: document.querySelector(".films-list"),
   backdrop: document.querySelector("[data-modal]"),
-  mainSection: document.querySelector("main"),
-  li: document.querySelectorAll(".films__item"),
-  modal: document.querySelector(".modal_movie"),
+  modal: document.querySelector(".render-movie"),
+  modalCloseBtn: document.querySelector("button.btn-close")
 };
-const KEY = "19011014b9b53c4fd496d37c25f2b619";
 
-refs.mainSection.addEventListener("click", onListClick);
+export let dataMovie = {};
+console.log("dataMovie", dataMovie);
+
+refs.filmList.addEventListener("click", onListClick);
+refs.modalCloseBtn.addEventListener("click", toggleModal);
 
 function onListClick(e) {
-  console.log(e.target.parentElement);
-
   if (e.target.parentElement.nodeName !== 'LI') {
     return;
   }
 
   const currentMovieId = e.target.parentElement.dataset.id;
-  console.log(currentMovieId);
+  // ===========================================
 
   API.fetchMovieDetails(currentMovieId)
   .then(res => {
     renderMovieDetailsMarkup(createMovieDetailsMarkup(res));
+    dataMovie = res;
+    console.log("dataMovie", dataMovie);
     })
   .catch(onFetchError);
   
   toggleModal();
 }
 
-// https://api.themoviedb.org/3/movie/{movie_id}/images?api_key=<<api_key>>
-// src="https://api.themoviedb.org/3/movie/${id}/images?api_key=${KEY}${poster_path}"
-
 function createMovieDetailsMarkup(res) {
-  console.log(res)
-
-  const { id, poster_path, title, vote_average, vote_count, popularity, original_title, genres, overview } = res;
+  const { poster_path, title, vote_average, vote_count, popularity, original_title, genres, overview } = res;
   const genresList = []
   
   for (const genre of genres) {
@@ -45,11 +42,6 @@ function createMovieDetailsMarkup(res) {
   }
 
   return `
-    <button class="btn-close" type="button">
-      <svg class="btn-close_icon" width="14" height="14">
-        <use href="#"></use>
-      </svg>
-    </button>
     <div class="modal_posterbox">
       <img
         class="modal_poster"
