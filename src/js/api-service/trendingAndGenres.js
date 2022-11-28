@@ -2,6 +2,9 @@ const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '19011014b9b53c4fd496d37c25f2b619';
 // import libraryCardMarkup from '../library-card/library-card';
 import markupCard from '../card/card-murkup-main';
+// ====== Добавил Толик Шулика =========
+import paginationManager from '../pagination/paginationManager';
+// ====== Добавил Толик Шулика =========
 
 export class getTrendingMovies {
   constructor() {
@@ -55,6 +58,9 @@ async function markupRenderer() {
   console.log(genres);
   const markup = markupCard(trendings.results, genres);
   container.insertAdjacentHTML('beforeend', markup);
+  // ====== Добавил Толик Шулика =========
+  paginationManager(trendings.page, trendings.total_pages);
+  // ====== Добавил Толик Шулика =========
 }
 
 export default getTrendingMovies;
