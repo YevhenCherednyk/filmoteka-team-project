@@ -18,10 +18,12 @@
   }
 }
 
-.wrapper {
+.films-list__img {
   border-radius: 5px;
   overflow: hidden;
+  width: 280px;
   height: 398px;
+  object-fit: cover;
   margin-bottom: 10px;
 
   @media screen and (min-width: 768px) {
@@ -50,23 +52,31 @@
   }
 }
 
-.films-list__text {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+// .films-list__text {
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: flex-start;
+//   color: var(--accent);
+// }
+
+// .films-list__ganre{
+//   max-width: 250px;
+// }
+
+// .release-date {
+//   margin-left: 10px;
+// }
+
+// .films-list__ganre {
+//   margin-right: 10px;
+// }
+
+.films-list__info {
+  display: inline-block;
+
   color: var(--accent);
-}
 
-
-
-.films-list__ganre{
-  max-width: 250px;
-}
-
-.release-date {
-  margin-left: 10px;
-}
-
-.films-list__ganre {
-  margin-right: 10px;
+  &:not(:last-child) {
+    margin-right: 4px;
+  };
 }
