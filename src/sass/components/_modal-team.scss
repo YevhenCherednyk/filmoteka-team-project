@@ -1,0 +1,282 @@
+.backdrop__team {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+
+    opacity: 1;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.25);
+    transition: opacity .25s cubic-bezier(.4, 0, .2, 1), visibility .25s cubic-bezier(.4, 0, .2, 1);
+
+    overflow-y: auto;
+}
+
+.backdrop__team.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+} 
+
+.team__container{
+    @media screen and (max-width: 768px){
+    // min-width: 280px;
+    // max-width: 400px;
+    // max-height: 90vh;
+    // width: 90vw;
+    }
+
+    width: 90vw;
+    max-height: 90vh;
+
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    overflow-y: auto;
+
+    // border: 2px solid tomato;
+    border-radius: 5px;
+    padding: 10px 10px 0;
+
+    @media screen and (min-width: 1200px) {
+        padding: 15px 15px 0;
+        }
+
+    background-color: var(--header-background-color);
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: cover;
+
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+         url(/src/images/header/background-img-mob.jpg);
+    
+         @media (min-device-pixel-ratio: 2),
+         (min-resolution: 192dpi),
+         (min-resolution: 2dppx) {
+             background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/images/header/background-img-mob@2x.jpg);
+         }
+    
+         @media screen and (min-width: 768px) {
+            //  max-width: 768px;
+             background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/images/header/background-img-tabl.jpg);
+    
+             @media (min-device-pixel-ratio: 2),
+             (min-resolution: 192dpi),
+             (min-resolution: 2dppx) {
+                 background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/images/header/background-img-tabl@2x.jpg);
+             }
+         }
+    
+         @media screen and (min-width: 1200px) {
+            //  max-width: 1600px;
+            //  height: 600px;
+            background-size: contain;
+             background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/images/modal-team/background-img-desk-modal.jpg);
+    
+         @media (min-device-pixel-ratio: 2),
+             (min-resolution: 192dpi),
+             (min-resolution: 2dppx) {
+                 background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/images/modal-team/background-img-desk-modal@2x.jpg);
+             }
+}
+}
+
+.team__title {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.17;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+
+    color: var(--light-txt-color);
+
+    @media screen and (min-width: 1200px) {
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+}
+
+.team__button--close{
+    width: 30px;
+    height: 30px;
+
+    z-index: 2;
+    fill: var(--light-txt-color);
+
+    background-color: #0000;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    transition: fill var(--animation);
+
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    &:hover,
+    &:focus {
+        fill: var(--accent);
+        }
+}
+
+//team cards
+
+.team__list {
+    @media screen and (min-width: 768px) {
+    justify-content: center;
+    // grid-template-columns: 1fr 1fr 1fr;
+    // gap: 20px;
+    // display: grid;
+    // margin: 0 15px;
+
+    }
+
+    @media screen and (min-width: 1200px) {
+    // grid-template-columns: 1fr 1fr 1fr 1fr;
+    // gap: 15px;
+    // display: grid;
+    // margin: 0 10px;
+    }
+}
+
+.team__card {
+    background-color: var(--footer-background-color);
+    max-width: 350px;
+    box-shadow: 0px 2px 1px rgb(0 0 0 / 20%),
+        0px 1px 1px rgb(0 0 0 / 14%),
+        0px 1px 3px rgb(0 0 0 / 12%);
+    border-radius: 4px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (max-width: 767px) {
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        max-width: 320px;
+        margin: 0;
+
+        // margin-left: 15px;
+        // margin-right: 15px;
+        // &:nth-child(-n+2) {
+        //     margin-bottom: 15px;
+        // }
+        // &:last-child:nth-child(3n - 1) {
+        //     grid-column-end: -2;
+        // }
+            
+
+    }
+
+    @media screen and (min-width: 1200px) {
+        max-width: 300px;
+        margin: 0;
+
+        // margin: 0 15px;
+        // &:nth-child(-n+2) {
+        //     margin-bottom: 0;
+        // }
+        // &:nth-last-child(2):nth-child(3n + 1) {
+        // grid-column-end: 3;
+        // }
+    }
+}
+
+.team__image {
+    display: block;
+
+    max-width: 100%;
+    height: auto;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 5px;
+}
+
+.team__name {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.19;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.team__role {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1.19;
+    text-align: center;
+    color: var(--dark-txt-color);
+    margin-bottom: 10px;
+}
+
+//socials
+
+.social {
+    display: flex;
+    justify-content: center;
+    max-width: 206px;
+    padding-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 1200px) {
+        height: 44px;
+        padding-bottom: 0px;
+        margin-bottom: 20px;
+    }
+
+}
+
+.social__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    color: var(--secondary);
+    transition: color 250ms var(--animation), background-color 250ms var(--animation);
+
+    &:hover,
+    &:focus {
+        background-color: var(--accent);
+        color: var(----dark-txt-color);
+
+        // &:last-child {
+        // color: #0077B5;
+        // }
+    }
+
+}
+
+.social__item+.social__item {
+    margin-left: 10px;
+
+    >.social__link:hover,
+    &:focus {
+        color: #0077B5;
+    }
+}
+
+.social__icon {
+    fill: currentColor;
+    width: 20px;
+    height: 20px;
+}
