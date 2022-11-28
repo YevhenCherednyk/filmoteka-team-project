@@ -1,83 +1,91 @@
-
+import markupCard from '../card/card-murkup-main';
+import MoviesApiService from './searchMovie';
 
 const refs = {
-    searchForm: document.querySelector('.search-form'),
-    articlesContainer: document.querySelector('.films-list'),
-    // loadMoreBtn: document.querySelector('[data-action="load-more"]'),
-  };
+  searchForm: document.querySelector('.search-form'),
+  articlesContainer: document.querySelector('.films-list'),
+  errorText: document.querySelector('.errorText'),
+  // loadMoreBtn: document.querySelector('[data-action="load-more"]'),
+};
+const moviesApiService = new MoviesApiService();
+const text = refs.errorText.textContent;
 
-  refs.searchForm.addEventListener('submit', onSearch);
+console.log('errorText', text);
 
-  let page = 1;
-console.log(555);
-function onSearch(event) {
-  event.preventDefault();
+console.log('moviesApiService', moviesApiService);
 
-  clearArticlesContainer();
-  fetchMovieSearche().then(results => {
-    if(results.length === 0) {
-      console.log('введите значение');
+refs.searchForm.addEventListener('submit', onSearch);
+
+function onSearch(e) {
+  e.preventDefault();
+
+  moviesApiService.query = e.currentTarget.elements.query.value;
+
+  if (moviesApiService.query === '') {
+    return alert('Enter films name');
+    // add text Search result not successful. Enter the correct movie name and
+  }
+
+  moviesApiService.resetPage();
+  moviesApiService.fetchMovieSearche().then(results => {
+    if (results.length === 0) {
+      return alert('Enter films name');
+      // add text Search result not successful. Enter the correct movie name and
     }
+    clearArticlesContainer();
+    // markupRenderer(results);
+
     appendHitsMarkup(results);
   });
 }
 
-function fetchMovieSearche() {
-  const searchQuery = event.currentTarget.elements.query.value;
-
-  return fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=19011014b9b53c4fd496d37c25f2b619&query=${searchQuery}&page=${page}&genre`
-  )
-    .then(r => r.json())
-    .then(data => {
-      console.log(data.results[0]);
-
-      return data.results;
-    });
-}
-
 function appendHitsMarkup(results) {
-  console.log('original_title', results[0].original_title);
-  console.log('Жанр', results[0].genre_ids[0].name);
   refs.articlesContainer.insertAdjacentHTML('beforeend', createCard(results));
 }
-
-// function createCard(results) {
-//   return results
-//     .map(({ poster_path, 
-//       original_title, 
-//       id, 
-//       popularity,
-//       release_date,
-//       vote_count,
-//       genre_ids,
-//      }) => {
-//       return `
-//     <div class="photo-card">
-//     <h2> ${original_title} </h2>
-//     <img class="gallery__image" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="movie"/>
-//     <div class="info">
-    
-//       <p class="info-item">
-//         <b>Id</b>${id}
-//       </p>
-//       <p class="info-item">
-//         <b>Popularity
-//         </b>${popularity}
-//       </p>
-//       <p class="info-item">
-//         <b>Release_date</b>${release_date.slice(0, 4)}
-//       </p>
-//       <p class="info-item">
-//       <b>genre</b>${genre_ids[0]}
-//       </p>
-//     </div>
-//   </div>
-//   `;
-//     })
-//     .join('');
-// }
 
 function clearArticlesContainer() {
   refs.articlesContainer.innerHTML = '';
 }
+
+// =============Часть от Олега===================================
+// async function markupRenderer() {
+//     const genres = await moviesApiService.searchGenres();
+//     const trendings = await moviesApiService.fetchMovieSearche();
+//     console.log(trendings);
+//     console.log(genres);
+//     const markup = markupCard(trendings.results, genres);
+//     refs.articlesContainer.insertAdjacentHTML('beforeend', markup);
+//   }
+
+// ================================================
+
+function createCard(results) {
+  return results
+    .map(
+      ({
+        poster_path,
+        original_title,
+        id,
+        popularity,
+        release_date,
+        vote_count,
+        genre_ids,
+      }) => {
+        return `
+        <li class="films-list__item" data-id="${id}">
+        <div class="wrapper">
+            <img src="http://image.tmdb.org/t/p/w500${poster_path}" alt="movie"/>
+        </div>
+        <div class="text-wrapper">
+            <h2 class="films-list__title">${original_title}</h2>
+            <p class="films-list__text"><span class="films-list__ganre">'In progress'</span> &#10072; <span class="release-date">${release_date.slice(0, 4)}</span>
+            </p>
+        </div>
+    </li>
+  `;
+      }
+    )
+    .join('');
+}
+
+
