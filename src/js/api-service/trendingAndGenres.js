@@ -1,5 +1,6 @@
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '19011014b9b53c4fd496d37c25f2b619';
+import spinnerControls from '../spinner/spinner';
 // import libraryCardMarkup from '../library-card/library-card';
 import markupCard from '../card/card-murkup-main';
 // ====== Добавил Толик Шулика =========
@@ -13,7 +14,6 @@ export class getTrendingMovies {
 
   async searchTrendingFilms() {
     const url = `${BASE_URL}trending/all/week?api_key=${API_KEY}&page=${this.page}`;
-    this.pageIncrement();
     try {
       const response = await fetch(url);
       const trendings = await response.json();
@@ -45,11 +45,22 @@ export class getTrendingMovies {
   resetPage() {
     this.page = 1;
   }
+
+  set currentPage(newPage) {
+    this.page = newPage;
+  }
+
+  get currentPage() {
+    return this.page;
+  }
 }
 
 const GetMovies = new getTrendingMovies();
-
 const container = document.querySelector('.films-list');
+window.addEventListener('load', () => {
+  spinnerControls.showSpinner();
+  setTimeout(markupRenderer, 1000);
+});
 
 async function markupRenderer() {
   const genres = await GetMovies.searchGenres();
@@ -57,12 +68,12 @@ async function markupRenderer() {
   console.log(trendings);
   console.log(genres);
   const markup = markupCard(trendings.results, genres);
-  container.insertAdjacentHTML('beforeend', markup);
+  container.innerHTML = markup;
   // ====== Добавил Толик Шулика =========
   paginationManager(trendings.page, trendings.total_pages);
   // ====== Добавил Толик Шулика =========
+
+  spinnerControls.hideSpinner();
 }
 
 export default getTrendingMovies;
-
-markupRenderer();
