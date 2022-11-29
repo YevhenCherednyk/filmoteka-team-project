@@ -1,6 +1,7 @@
 import findGenres from '../all-genres/find-genres';
 import dateOptimizer from '../api-service/date-optimizer';
 import titleOptimizer from '../api-service/title-optimizer';
+import picturePathPlace from '../api-service/placeholder';
 
 export default function libraryCardMarkup(data, genres) {
   const card = data
@@ -13,11 +14,11 @@ export default function libraryCardMarkup(data, genres) {
         vote_average,
         release_date,
         first_air_date,
-        poster_path = '../images/сard-films/movie-poster-coming-soon.jpg',
+        poster_path,
       }) => {
         return `
         <li class="films-list__item" data-id="${id}">
-  <img src="http://image.tmdb.org/t/p/w500${poster_path}" alt="${titleOptimizer(
+  <img src="${picturePathPlace(poster_path)}" alt="${titleOptimizer(
           title,
           name
         )}" />
