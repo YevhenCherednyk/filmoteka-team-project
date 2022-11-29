@@ -1,3 +1,7 @@
+.container-main {
+  min-height: 100vh;
+}
+
 .films-list {
   display: grid;
   grid-template-columns: repeat(1, minmax(280px, 1fr));
