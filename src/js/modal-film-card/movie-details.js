@@ -1,18 +1,18 @@
 import API from '../api-service/fetch-movie-details';
-// import addToLocalStorage from './add-to-localStorage';
+import { addToLocalStorage } from './add-to-localStorage';
 
 const refs = {
-  filmList: document.querySelector(".films-list"),
-  backdrop: document.querySelector("[data-modal]"),
-  modal: document.querySelector(".modal_movie"),
-  modalCloseBtn: document.querySelector("button.btn-close")
+  filmList: document.querySelector('.films-list'),
+  backdrop: document.querySelector('[data-modal]'),
+  modal: document.querySelector('.modal_movie'),
+  modalCloseBtn: document.querySelector('button.btn-close'),
 };
 
 let dataMovie = {};
 // console.log("(синхр код) спочатку dataMovie: ", dataMovie)
 
-refs.filmList.addEventListener("click", onListClick);
-refs.modalCloseBtn.addEventListener("click", toggleModal);
+refs.filmList.addEventListener('click', onListClick);
+refs.modalCloseBtn.addEventListener('click', toggleModal);
 
 function onListClick(e) {
   if (e.target.parentElement.nodeName !== 'LI') {
@@ -23,30 +23,39 @@ function onListClick(e) {
   // ===========================================
 
   API.fetchMovieDetails(currentMovieId)
-  .then(res => {
-    renderMovieDetailsMarkup(createMovieDetailsMarkup(res));
-    exportMovieDeatails(res);
+    .then(res => {
+      renderMovieDetailsMarkup(createMovieDetailsMarkup(res), res);
+      // exportMovieDeatails(res);
     })
-  .catch(onFetchError);
-  
+    .catch(onFetchError);
+
   toggleModal();
   // console.log("(синхр код) зараз dataMovie: ", dataMovie);
 
   // setTimeout(() => {console.log("(асинхр код) тепер dataMovie: ", dataMovie);}, 1000);
 }
 
-function exportMovieDeatails(res) {
-  dataMovie = res;
-  // console.log(dataMovie);
-  return dataMovie;
-}
+// function exportMovieDeatails(res) {
+//   dataMovie = res;
+//   // console.log(dataMovie);
+//   return dataMovie;
+// }
 
 function createMovieDetailsMarkup(res) {
-  const { poster_path, title, vote_average, vote_count, popularity, original_title, genres, overview } = res;
-  const genresList = []
-  
+  const {
+    poster_path,
+    title,
+    vote_average,
+    vote_count,
+    popularity,
+    original_title,
+    genres,
+    overview,
+  } = res;
+  const genresList = [];
+
   for (const genre of genres) {
-    genresList.push(genre.name)
+    genresList.push(genre.name);
   }
 
   return `
@@ -76,7 +85,7 @@ function createMovieDetailsMarkup(res) {
         </tr>
         <tr>
           <th>Genre</th>
-          <td>${genresList.join(", ")}</td>
+          <td>${genresList.join(', ')}</td>
         </tr>
       </table>
       <h3 class="modal-info_about">About</h3>
@@ -93,21 +102,24 @@ function createMovieDetailsMarkup(res) {
   `;
 }
 
-function renderMovieDetailsMarkup(data) {
+function renderMovieDetailsMarkup(data, fromBackend) {
   refs.modal.innerHTML = data;
-
   const btnAddToWatchedRef = document.querySelector('#watched');
   const btnAddToQueueRef = document.querySelector('#queue');
 
-  btnAddToWatchedRef.addEventListener('click', addToLocalStorage);
-  btnAddToQueueRef.addEventListener('click', addToLocalStorage);
+  btnAddToWatchedRef.addEventListener('click', event =>
+    addToLocalStorage(event, fromBackend)
+  );
+  btnAddToQueueRef.addEventListener('click', event =>
+    addToLocalStorage(event, fromBackend)
+  );
 }
 
 function onFetchError(error) {
-  console.error("Oops");
+  console.error('Oops');
 }
 
 function toggleModal() {
-  document.body.classList.toggle("modal-is-open")
-  refs.backdrop.classList.toggle("is-hidden");
-} 
+  document.body.classList.toggle('modal-is-open');
+  refs.backdrop.classList.toggle('is-hidden');
+}
