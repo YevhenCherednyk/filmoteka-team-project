@@ -1,4 +1,5 @@
 import API from '../api-service/fetch-movie-details';
+import addToLocalStorage from './add-to-localStorage';
 
 const refs = {
   filmList: document.querySelector(".films-list"),
@@ -8,7 +9,7 @@ const refs = {
 };
 
 let dataMovie = {};
-console.log("(синхр код) спочатку dataMovie: ", dataMovie)
+// console.log("(синхр код) спочатку dataMovie: ", dataMovie)
 
 refs.filmList.addEventListener("click", onListClick);
 refs.modalCloseBtn.addEventListener("click", toggleModal);
@@ -29,14 +30,14 @@ function onListClick(e) {
   .catch(onFetchError);
   
   toggleModal();
-  console.log("(синхр код) зараз dataMovie: ", dataMovie);
+  // console.log("(синхр код) зараз dataMovie: ", dataMovie);
 
-  setTimeout(() => {console.log("(асинхр код) тепер dataMovie: ", dataMovie);}, 1000);
+  // setTimeout(() => {console.log("(асинхр код) тепер dataMovie: ", dataMovie);}, 1000);
 }
 
 function exportMovieDeatails(res) {
   dataMovie = res;
-  console.log(dataMovie);
+  // console.log(dataMovie);
   return dataMovie;
 }
 
@@ -94,6 +95,12 @@ function createMovieDetailsMarkup(res) {
 
 function renderMovieDetailsMarkup(data) {
   refs.modal.innerHTML = data;
+
+  const btnAddToWatchedRef = document.querySelector('#watched');
+  const btnAddToQueueRef = document.querySelector('#queue');
+
+  btnAddToWatchedRef.addEventListener('click', addToLocalStorage);
+  btnAddToQueueRef.addEventListener('click', addToLocalStorage);
 }
 
 function onFetchError(error) {
