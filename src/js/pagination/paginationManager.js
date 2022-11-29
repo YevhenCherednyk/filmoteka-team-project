@@ -1,28 +1,27 @@
 import renderLinearButtons from './renderLinearButtons';
 import renderButtonsArrowRight from './renderButtonsArrowRight';
 import renderButtonsTwoArrow from './renderButtonsTwoArrow';
+import renderButtonsTwoArrowMobile from './renderButtonsTwoArrowMobile';
 import renderButtonsArrowLeft from './renderButtonsArrowLeft';
 
 export default paginationManager;
 let maxPageForLinearBatton = 7;
+let numberOfButtons = 6;
 const divPaginationRef = document.querySelector('.pagination');
-// =============================================================
-var x = window.matchMedia('(max-width: 768px)');
+const screenWidth = window.matchMedia('(max-width: 768px)');
 
-function myFunction(x) {
-  if (x.matches) {
-    // If media query matches
-    document.body.style.backgroundColor = 'yellow';
+function wathcScreen(screenWidth) {
+  if (screenWidth.matches) {
     maxPageForLinearBatton = 7;
+    numberOfButtons = 6;
   } else {
-    // document.body.style.backgroundColor = 'pink';
     maxPageForLinearBatton = 10;
+    numberOfButtons = 9;
   }
 }
-x.addListener(myFunction); // Attach listener function on state changes
-myFunction(x); // Call listener function at run time
+screenWidth.addListener(wathcScreen);
+wathcScreen(screenWidth);
 
-// =========================================================
 function paginationManager(currentPage, numberOfPages) {
   if (numberOfPages < 2) {
     return;
@@ -33,7 +32,7 @@ function paginationManager(currentPage, numberOfPages) {
     return;
   }
   if (numberOfPages > maxPageForLinearBatton && currentPage < 5) {
-    renderButtonsArrowRight(currentPage);
+    renderButtonsArrowRight(currentPage, numberOfButtons);
     divPaginationRef.classList.remove('hide-pagination');
     return;
   }
@@ -42,16 +41,26 @@ function paginationManager(currentPage, numberOfPages) {
     currentPage >= 5 &&
     numberOfPages - currentPage >= 5
   ) {
-    renderButtonsTwoArrow(currentPage, numberOfPages);
-    divPaginationRef.classList.remove('hide-pagination');
-    return;
+    function wathcScreen(screenWidth) {
+      if (screenWidth.matches) {
+        renderButtonsTwoArrowMobile(currentPage, numberOfPages);
+        divPaginationRef.classList.remove('hide-pagination');
+        return;
+      } else {
+        renderButtonsTwoArrow(currentPage, numberOfPages);
+        divPaginationRef.classList.remove('hide-pagination');
+        return;
+      }
+    }
+    screenWidth.addListener(wathcScreen);
+    wathcScreen(screenWidth);
   }
   if (
     numberOfPages > maxPageForLinearBatton &&
     currentPage >= 5 &&
     numberOfPages - currentPage < 5
   ) {
-    renderButtonsArrowLeft(currentPage, numberOfPages);
+    renderButtonsArrowLeft(currentPage, numberOfPages, numberOfButtons);
     divPaginationRef.classList.remove('hide-pagination');
     return;
   }

@@ -13,7 +13,7 @@ async function getDataAndPutToRender(basePath, page) {
   container.innerHTML = markupListOfMovies;
   paginationManager(movies.page, movies.total_pages);
   window.scrollTo({
-    top: 280,
+    top: 270,
     behavior: 'smooth',
   });
 }
