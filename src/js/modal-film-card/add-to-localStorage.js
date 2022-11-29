@@ -90,6 +90,7 @@ btnAddToWatchedRef.addEventListener('click', addToLocalStorage);
 btnAddToQueueRef.addEventListener('click', addToLocalStorage);
 
 let newStorageMovie = [];
+let check = '';
 
 function addToLocalStorage() {  
     const typeBtn = event.target.id
@@ -98,7 +99,7 @@ function addToLocalStorage() {
 
     if (storageMovie) {
         uniquenessCheck(storageMovie);
-        if (check) { return }
+        if (check === 'repetition') { return }
         storageMovie.push(dataMovie);     
         localStorage.setItem(typeBtn, JSON.stringify(storageMovie)); 
         return
@@ -115,7 +116,7 @@ function uniquenessCheck(storageMovie) {
         
         console.log(movie);  
         if (movie === dataMovie) {
-            const check = { repetition };
+            check = 'repetition';
             return check;
         }
     }
