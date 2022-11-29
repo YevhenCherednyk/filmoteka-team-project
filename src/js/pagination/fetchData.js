@@ -1,4 +1,4 @@
-import Notiflix from 'notiflix';
+// import Notiflix from 'notiflix';
 import axios from 'axios';
 
 async function fetchData(path) {
