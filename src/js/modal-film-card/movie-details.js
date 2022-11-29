@@ -1,5 +1,5 @@
 import API from '../api-service/fetch-movie-details';
-import addToLocalStorage from './add-to-localStorage';
+// import addToLocalStorage from './add-to-localStorage';
 
 const refs = {
   filmList: document.querySelector(".films-list"),
