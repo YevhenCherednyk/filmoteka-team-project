@@ -2,6 +2,53 @@
   width: 100vw;
 }
 
+.header-bgr {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(to right,
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)),
+    url(../images/header/background-img-mob.jpg);
+
+  @media (min-device-pixel-ratio: 2),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 1920dpi),
+  (min-resolution: 2dppx) {
+    background-image: linear-gradient(to right,
+        rgba(47, 48, 58, 0.4),
+        rgba(47, 48, 58, 0.4)),
+      url(../images/header/background-img-mob@2x.jpg);
+  }
+
+  @media screen and(min-width: 768px) {
+    background-image: linear-gradient(to right,
+        rgba(47, 48, 58, 0.4),
+        rgba(47, 48, 58, 0.4)),
+      url(../images/header/background-img-tabl.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right,
+          rgba(47, 48, 58, 0.4),
+          rgba(47, 48, 58, 0.4)),
+        url(../images/header/background-img-tabl@2x.jpg);
+    }
+  }
+
+  @media screen and(min-width:1280px) {
+    background-image: url(../images/header/background-img-desk.jpg);
+
+    @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+      background-image: url(../images/header/background-img-desk@2x.jpg);
+    }
+  }
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -10,6 +57,12 @@
   &--top__step {
     padding-top: 40px;
   }
+}
+
+.iconteka {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
 }
 
 .logo {
@@ -24,12 +77,6 @@
   }
 }
 
-.iconteka {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
-}
-
 .nav__list {
   display: flex;
   align-items: center;
@@ -37,11 +84,13 @@
   margin-right: 20px;
   margin-left: auto;
 }
+
 .nav__item {
   display: block;
   position: relative;
   padding-bottom: 5px;
 }
+
 .nav__item--margright {
   margin-right: 39px;
 }
@@ -54,6 +103,7 @@
 
   color: var(--light-txt-color);
 }
+
 .nav__link--current::after {
   content: '';
   display: inline-block;
@@ -113,23 +163,6 @@
   line-height: 16px;
 }
 
-.errorText {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-  padding-bottom: 45px;
-
-
-  color: var(--attention-txt-color);
-
-  &--topPad {
-    padding-top: 20px;
-  }
-}
-
-
 .search-bth {
   position: absolute;
   display: inline-block;
@@ -149,56 +182,18 @@
   height: 12px;
 }
 
-.header-bgr {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: linear-gradient(
-      to right,
-      rgba(47, 48, 58, 0.4),
-      rgba(47, 48, 58, 0.4)
-    ),
-    url(../images/header/background-img-mob.jpg);
+.errorText {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  padding-bottom: 45px;
 
-  @media (min-device-pixel-ratio: 2),
-    (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 1920dpi),
-    (min-resolution: 2dppx) {
-    background-image: linear-gradient(
-        to right,
-        rgba(47, 48, 58, 0.4),
-        rgba(47, 48, 58, 0.4)
-      ),
-      url(../images/header/background-img-mob@2x.jpg);
-  }
-  @media screen and(min-width: 768px) {
-    background-image: linear-gradient(
-        to right,
-        rgba(47, 48, 58, 0.4),
-        rgba(47, 48, 58, 0.4)
-      ),
-      url(../images/header/background-img-tabl.jpg);
 
-    @media (min-device-pixel-ratio: 2),
-      (-webkit-min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: linear-gradient(
-          to right,
-          rgba(47, 48, 58, 0.4),
-          rgba(47, 48, 58, 0.4)
-        ),
-        url(../images/header/background-img-tabl@2x.jpg);
-    }
-  }
+  color: var(--attention-txt-color);
 
-  @media screen and(min-width:1280px) {
-    background-image: url(../images/header/background-img-desk.jpg);
-
-    @media (min-device-pixel-ratio: 2),
-      (-webkit-min-device-pixel-ratio: 2),
-      (min-resolution: 192dpi),
-      (min-resolution: 2dppx) {
-      background-image: url(../images/header/background-img-desk@2x.jpg);
-    }
+  &--topPad {
+    padding-top: 20px;
   }
 }
