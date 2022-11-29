@@ -4,9 +4,25 @@ import renderButtonsTwoArrow from './renderButtonsTwoArrow';
 import renderButtonsArrowLeft from './renderButtonsArrowLeft';
 
 export default paginationManager;
-const maxPageForLinearBatton = 10;
+let maxPageForLinearBatton = 7;
 const divPaginationRef = document.querySelector('.pagination');
+// =============================================================
+var x = window.matchMedia('(max-width: 768px)');
 
+function myFunction(x) {
+  if (x.matches) {
+    // If media query matches
+    document.body.style.backgroundColor = 'yellow';
+    maxPageForLinearBatton = 7;
+  } else {
+    // document.body.style.backgroundColor = 'pink';
+    maxPageForLinearBatton = 10;
+  }
+}
+x.addListener(myFunction); // Attach listener function on state changes
+myFunction(x); // Call listener function at run time
+
+// =========================================================
 function paginationManager(currentPage, numberOfPages) {
   if (numberOfPages < 2) {
     return;

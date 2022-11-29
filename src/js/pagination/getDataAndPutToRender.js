@@ -9,11 +9,11 @@ const pathToGanres =
 async function getDataAndPutToRender(basePath, page) {
   const movies = await fetchData(`${basePath}&page=${page}`);
   const genres = await fetchData(pathToGanres);
-  const markupListOfMovies = markupCard(movies.results, genres);
+  const markupListOfMovies = await markupCard(movies.results, genres);
   container.innerHTML = markupListOfMovies;
   paginationManager(movies.page, movies.total_pages);
   window.scrollTo({
-    top: 300,
+    top: 280,
     behavior: 'smooth',
   });
 }
