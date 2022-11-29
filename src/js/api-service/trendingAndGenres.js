@@ -5,6 +5,7 @@ import spinnerControls from '../spinner/spinner';
 import markupCard from '../card/card-murkup-main';
 // ====== Добавил Толик Шулика =========
 import paginationManager from '../pagination/paginationManager';
+import PathHendler from '../pagination/RequestHendler';
 // ====== Добавил Толик Шулика =========
 
 export class GetTrendingMovies {
@@ -46,6 +47,15 @@ export class GetTrendingMovies {
       console.log(error);
     }
   }
+
+  // ====== Добавил Толик Шулика =========
+  GetMovieSearcPath() {
+    return `${BASE_URL}search/movie?api_key=${API_KEY}&query=${this.searchQuery}`;
+  }
+  GetTrendingSearcPath() {
+    return `${BASE_URL}trending/all/week?api_key=${API_KEY}`;
+  }
+  // ====== Добавил Толик Шулика =========
 
   pageIncrement() {
     this.page += 1;
@@ -93,6 +103,7 @@ async function markupRenderer() {
   container.innerHTML = markup;
   // ====== Добавил Толик Шулика =========
   paginationManager(trendings.page, trendings.total_pages);
+  PathHendler.path = GetMovies.GetTrendingSearcPath();
   // ====== Добавил Толик Шулика =========
 
   spinnerControls.hideSpinner();

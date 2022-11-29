@@ -2,6 +2,10 @@
 import GetTrendingMovies from './trendingAndGenres';
 import markupCard from '../card/card-murkup-main';
 import spinnerControls from '../spinner/spinner';
+// ====== Добавил Толик Шулика =========
+import paginationManager from '../pagination/paginationManager';
+import PathHendler from '../pagination/RequestHendler';
+// ====== Добавил Толик Шулика =========
 
 const refs = {
   searchForm: document.querySelector('.search-form'),
@@ -35,8 +39,11 @@ async function onSearch(e) {
   moviesApiService.resetPage();
   const genres = await moviesApiService.searchGenres();
   const searchedMovies = await moviesApiService.fetchMovieSearch();
-
   appendHitsMarkup(searchedMovies.results, genres);
+  // ====== Добавил Толик Шулика =========
+  paginationManager(searchedMovies.page, searchedMovies.total_pages);
+  PathHendler.path = moviesApiService.GetMovieSearcPath();
+  // ====== Добавил Толик Шулика =========
 }
 
 function appendHitsMarkup(results, genres) {
