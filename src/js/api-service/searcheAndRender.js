@@ -6,14 +6,14 @@ import spinnerControls from '../spinner/spinner';
 const refs = {
   searchForm: document.querySelector('.search-form'),
   articlesContainer: document.querySelector('.films-list'),
-  errorText: document.querySelector('.errorText'),
+  txt: document.querySelector('.errorText'),
 };
 
 const moviesApiService = new GetTrendingMovies();
-const text = refs.errorText.textContent;
+const text = refs.txt.textContent;
 
 // console.log('errorText', text);
-
+refs.txt.textContent = " ";
 // console.log('moviesApiService', moviesApiService);
 
 refs.searchForm.addEventListener('submit', onSearch);
@@ -23,19 +23,18 @@ async function onSearch(e) {
 
   moviesApiService.query = e.currentTarget.elements.query.value;
 
-  if (moviesApiService.query === '') {
-    return alert('Enter films name');
-    // add text Search result not successful. Enter the correct movie name and
-  }
-
-  clearArticlesContainer();
-
-  spinnerControls.showSpinner();
-
-  moviesApiService.resetPage();
   const genres = await moviesApiService.searchGenres();
   const searchedMovies = await moviesApiService.fetchMovieSearch();
+  clearArticlesContainer();
+  if (moviesApiService.query === '' || searchedMovies.results.length === 0) {
+    refs.txt.textContent = "Search result not successful. Enter the correct movie name and try again!"
+    return    
+  }
 
+  refs.txt.textContent = " ";  
+
+  spinnerControls.showSpinner();
+  moviesApiService.resetPage();
   appendHitsMarkup(searchedMovies.results, genres);
 }
 
@@ -44,7 +43,7 @@ function appendHitsMarkup(results, genres) {
     'beforeend',
     markupCard(results, genres)
   );
-
+  // message.hidenError();
   spinnerControls.hideSpinner();
 }
 
@@ -52,6 +51,13 @@ function clearArticlesContainer() {
   refs.articlesContainer.innerHTML = '';
 }
 
+// function messageError() {
+//   refs.txt.classList.remove('visually-hidden');
+// }
+
+// function hidenError() {
+//   refs.txt.classList.add('visually-hidden');
+// }
 // =============Часть от Олега===================================
 // async function markupRenderer() {
 //     const genres = await moviesApiService.searchGenres();
