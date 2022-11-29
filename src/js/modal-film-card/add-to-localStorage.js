@@ -89,9 +89,6 @@ const btnAddToQueueRef = document.querySelector('#queue');
 btnAddToWatchedRef.addEventListener('click', addToLocalStorage);
 btnAddToQueueRef.addEventListener('click', addToLocalStorage);
 
-watched_KEY = 'watched movie'
-queue_KEY = 'queue movie'
-
 let newStorageMovie = [];
 
 function addToLocalStorage() {  
@@ -99,18 +96,27 @@ function addToLocalStorage() {
     let storageMovie = localStorage.getItem(typeBtn)
     storageMovie = JSON.parse(storageMovie);
 
-    console.log(storageMovie);
     if (storageMovie) {
-    console.log('є історія');
-        storageMovie.push(dataMovie);
-        console.log(storageMovie);
+        uniquenessCheck(storageMovie);
+        if (check) { return }
+        storageMovie.push(dataMovie);     
         localStorage.setItem(typeBtn, JSON.stringify(storageMovie)); 
         return
     }
 
     newStorageMovie.push(dataMovie);
-    console.log(newStorageMovie);
     localStorage.setItem(typeBtn, JSON.stringify(newStorageMovie));       
     newStorageMovie = [];           
-    return  
+    return
 } 
+
+function uniquenessCheck(storageMovie) {
+    for (movie of storageMovie) {
+        
+        console.log(movie);  
+        if (movie === dataMovie) {
+            const check = { repetition };
+            return check;
+        }
+    }
+}
