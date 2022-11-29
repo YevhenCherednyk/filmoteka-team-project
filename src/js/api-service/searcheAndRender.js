@@ -2,6 +2,10 @@
 import GetTrendingMovies from './trendingAndGenres';
 import markupCard from '../card/card-murkup-main';
 import spinnerControls from '../spinner/spinner';
+// ====== Добавил Толик Шулика =========
+import paginationManager from '../pagination/paginationManager';
+import PathHendler from '../pagination/RequestHendler';
+// ====== Добавил Толик Шулика =========
 
 const refs = {
   searchForm: document.querySelector('.search-form'),
@@ -13,7 +17,7 @@ const moviesApiService = new GetTrendingMovies();
 const text = refs.txt.textContent;
 
 // console.log('errorText', text);
-refs.txt.textContent = " ";
+refs.txt.textContent = ' ';
 // console.log('moviesApiService', moviesApiService);
 
 refs.searchForm.addEventListener('submit', onSearch);
@@ -27,15 +31,20 @@ async function onSearch(e) {
   const searchedMovies = await moviesApiService.fetchMovieSearch();
   clearArticlesContainer();
   if (moviesApiService.query === '' || searchedMovies.results.length === 0) {
-    refs.txt.textContent = "Search result not successful. Enter the correct movie name and try again!"
-    return    
+    refs.txt.textContent =
+      'Search result not successful. Enter the correct movie name and try again!';
+    return;
   }
 
-  refs.txt.textContent = " ";  
+  refs.txt.textContent = ' ';
 
   spinnerControls.showSpinner();
   moviesApiService.resetPage();
   appendHitsMarkup(searchedMovies.results, genres);
+  // ====== Добавил Толик Шулика =========
+  paginationManager(searchedMovies.page, searchedMovies.total_pages);
+  PathHendler.path = moviesApiService.GetMovieSearcPath();
+  // ====== Добавил Толик Шулика =========
 }
 
 function appendHitsMarkup(results, genres) {
