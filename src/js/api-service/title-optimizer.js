@@ -3,5 +3,9 @@ export default function optimizer(title, name) {
     return title;
   }
 
-  return name;
+  if (name) {
+    return name;
+  }
+
+  return 'The best film in your life! :)';
 }
