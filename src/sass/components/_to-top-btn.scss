@@ -10,6 +10,12 @@
     }
 }
 
+.to-top.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
 .to-top--position {
     position: fixed;
     bottom: 40px;
@@ -24,7 +30,7 @@
 }
 
 .to-top--style {
-    visibility: hidden;
+    // visibility: hidden;
 
     font-weight: 500;
     font-size: 25;

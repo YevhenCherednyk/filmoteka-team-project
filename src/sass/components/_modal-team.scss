@@ -10,7 +10,7 @@
     opacity: 1;
     z-index: 100;
     background-color: rgba(0, 0, 0, 0.25);
-    transition: opacity .25s cubic-bezier(.4, 0, .2, 1), visibility .25s cubic-bezier(.4, 0, .2, 1);
+    transition: opacity .4s cubic-bezier(.4, 0, .2, 1), visibility .4s cubic-bezier(.4, 0, .2, 1);
 
     overflow-y: auto;
 }

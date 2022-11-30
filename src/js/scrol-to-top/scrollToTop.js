@@ -1,4 +1,5 @@
-const scrollBtn = document.querySelector(".to-top--style");
+const scrollBtn = document.querySelector(".to-top");
+const filmListRef = document.querySelector('.films-list');
 
 if (scrollBtn) scrollBtn.addEventListener("click", () => {
     window.scrollTo({
@@ -7,12 +8,25 @@ if (scrollBtn) scrollBtn.addEventListener("click", () => {
     });
 });
 
-function btnVisibility() {
-    window.scrollY > 50 ? scrollBtn.style.visibility = "visible" : scrollBtn.style.visibility = "hidden";
+filmListRef.addEventListener('click', hideToTopBtn)
 
-    if (document.querySelector('body').classList.contains('modal-is-open')){
-        scrollBtn.style.visibility = "hidden";
+document.addEventListener("scroll", () => {
+    btnVisibility();
+});
+
+function hideToTopBtn() {
+    scrollBtn.classList.add('is-hidden')
+}
+
+function btnVisibility() {
+
+    window.scrollY > 150 ? scrollBtn.classList.remove('is-hidden') : scrollBtn.classList.add('is-hidden');
+
+    if (document.querySelector('body').classList.contains('modal-is-open')) {
+        scrollBtn.classList.add('is-hidden');
     }
+
+    // window.scrollY > 150 ? scrollBtn.classList.remove('visually-hidden') : scrollBtn.classList.add('visually-hidden');
 
     // if (window.scrollY > 50) {
     //     scrollBtn.style.visibility = "visible";
@@ -20,11 +34,6 @@ function btnVisibility() {
     //     scrollBtn.style.visibility = "hidden";
     // }
 };
-
-document.addEventListener("scroll", () => {
-    btnVisibility();
-});
-
 
 // function setBlackThemeScrollBtn() {
 //   if (document.querySelector('body').classList.contains('black')) {
