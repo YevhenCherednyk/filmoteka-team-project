@@ -1,60 +1,53 @@
-// const refs = {
-//     //  ========== команда ==========
-//     modalCloseBtn: document.querySelector("[data-modal-close]"),
-//     modalOpenBtn: document.querySelector("#open-modal-team"),
-//     backdrop: document.querySelector("#team-modal"),
-//     // ========== фільм ==========
-//     backdrop: document.querySelector("[data-modal]"),
-//     modalCloseBtn: document.querySelector("button.btn-close"),
-//     modalPoster: document.querySelector(".modal_poster"),
-// };
+const refs = {
+  body: document.querySelector("body"),
+  // ===== for movie modal =====
+  backdropMovie: document.querySelector("[data-modal='movie']"),
+  modalCloseBtnMovie: document.querySelector("[data-modalCloseBtn='movie']"),
 
+  // ===== for team modal =====
+  backdropTeam: document.querySelector("[data-modal='team']"),
+  modalOpenBtnTeam: document.querySelector("[data-modalOpenBtn='team']"), 
+  modalCloseBtnTeam: document.querySelector("[data-modalCloseBtn='team']"),
+};
 
+window.addEventListener('keydown', onEscKeyPress);
+// ===== for movie modal =====
+refs.backdropMovie.addEventListener('click', onBackdropClick);
+refs.modalCloseBtnMovie.addEventListener('click', toggleModalMovie);
+// ===== for team modal =====
+refs.backdropTeam.addEventListener('click', onBackdropClick);
+refs.modalOpenBtnTeam.addEventListener("click", toggleModalTeam);
+refs.modalCloseBtnTeam.addEventListener("click", toggleModalTeam);
+// ===========================
 
+export function toggleModalMovie() {
+  refs.body.classList.toggle("modal-is-open");
+  refs.backdropMovie.classList.toggle('is-hidden');
+}
 
+function toggleModalTeam() {
+  refs.body.classList.toggle("modal-is-open");
+  refs.backdropTeam.classList.toggle('is-hidden');
+}
 
+function onBackdropClick(e) {
+  if (e.currentTarget === e.target) {
+    closeModal();
+  }
+}
 
+function onEscKeyPress(e) {
+  if (!document.body.classList.contains("modal-is-open")) {
+    return;
+  }
 
+  if (e.code === 'Escape') {
+    closeModal();
+  }
+}
 
-
-
-// // ========== фільм ==========
-// function toggleModal() {
-//     document.body.classList.toggle("modal-is-open")
-//     refs.backdrop.classList.toggle("is-hidden");
-// }
-
-// //функция закрытия модалки по Esc
-// function onEscKeyPress(e) {
-//     if (e.code === 'Escape') {
-//         toggleModal();
-//         window.removeEventListener('keydown', onEscKeyPress);
-//     }
-// }
-
-// //функция закрытия модалки по backdrop
-// function onBackdropClick(e) {
-//     if (e.currentTarget === e.target) {
-//         toggleModal();
-//         window.removeEventListener('keydown', onEscKeyPress);
-//     }
-// }
-
-// // ========== команда ==========
-// window.addEventListener('keydown', onEscKeyPress);
-// refs.backdrop.addEventListener('click', onBackdropClick);
- 
-
-// function onEscKeyPress(e) {
-//     if (e.code === 'Escape') {
-//         toggleModal();
-//         window.removeEventListener('keydown', onEscKeyPress);
-//     }
-// }
-
-// function onBackdropClick(e) {
-//     if (e.currentTarget === e.target) {
-//         toggleModal();
-//         window.removeEventListener('keydown', onEscKeyPress);
-//     }
-// }
+function closeModal() {
+  refs.body.classList.remove("modal-is-open");
+  refs.backdropTeam.classList.add('is-hidden');
+  refs.backdropMovie.classList.add('is-hidden');
+}
