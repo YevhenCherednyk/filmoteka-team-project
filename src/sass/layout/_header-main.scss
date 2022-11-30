@@ -62,18 +62,22 @@
 .iconteka {
   width: 24px;
   height: 24px;
-  margin-right: 10px;
 }
 
 .logo {
+  display: flex;
+  gap: 10px;
+
   font-size: 30px;
   line-height: 1.17;
   color: var(--light-txt-color);
+}
 
+.logo__name{
   display: none;
 
   @media screen and(min-width:768px) {
-    display: block;
+      display: block;
   }
 }
 
