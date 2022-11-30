@@ -1,19 +1,19 @@
 import API from '../api-service/fetch-movie-details';
 
-import addToLocalStorage from './add-to-localStorage';
+import { addToLocalStorage } from './add-to-localStorage';
 import spinnerControls from '../spinner/spinner';
 
 const refs = {
-  filmList: document.querySelector(".films-list"),
-  backdrop: document.querySelector("[data-modal]"),
-  modal: document.querySelector(".modal_movie"),
-  modalCloseBtn: document.querySelector("button.btn-close"),
-  modalPoster: document.querySelector(".modal_poster"),
-  modalInfo: document.querySelector(".modal-info"),
+  filmList: document.querySelector('.films-list'),
+  backdrop: document.querySelector('[data-modal]'),
+  modal: document.querySelector('.modal_movie'),
+  modalCloseBtn: document.querySelector('button.btn-close'),
+  modalPoster: document.querySelector('.modal_poster'),
+  modalInfo: document.querySelector('.modal-info'),
 };
 
-refs.filmList.addEventListener("click", onListClick);
-refs.modalCloseBtn.addEventListener("click", toggleModal);
+refs.filmList.addEventListener('click', onListClick);
+refs.modalCloseBtn.addEventListener('click', toggleModal);
 
 function onListClick(e) {
   if (e.target.parentElement.nodeName !== 'LI') {
@@ -31,7 +31,7 @@ function onListClick(e) {
       toggleModal();
       spinnerControls.hideSpinner();
     })
-  .catch(onFetchError);
+    .catch(onFetchError);
 }
 
 function createMovieDetailsMarkup(res) {
@@ -115,9 +115,9 @@ function onFetchError(res) {
 }
 
 function toggleModal() {
-  document.body.classList.toggle("modal-is-open")
-  refs.backdrop.classList.toggle("is-hidden");
-} 
+  document.body.classList.toggle('modal-is-open');
+  refs.backdrop.classList.toggle('is-hidden');
+}
 
 function clearModal() {
   refs.modal.innerHTML = "<p>Sorry, this movie have't details yet</p>";
