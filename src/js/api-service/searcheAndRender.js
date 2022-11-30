@@ -24,6 +24,10 @@ refs.searchForm.addEventListener('submit', onSearch);
 
 async function onSearch(e) {
   e.preventDefault();
+  // ====== Добавил Толик Шулика =========
+  const divPaginationRef = document.querySelector('.pagination');
+  divPaginationRef.classList.add('hide-pagination');
+  // ====== Добавил Толик Шулика =========
 
   moviesApiService.query = e.currentTarget.elements.query.value;
 
