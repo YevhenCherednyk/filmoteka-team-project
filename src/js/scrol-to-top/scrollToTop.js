@@ -1,4 +1,4 @@
-const scrollBtn = document.querySelector(".to-top");
+const scrollBtn = document.querySelector(".to-top--style");
 
 if (scrollBtn) scrollBtn.addEventListener("click", () => {
     window.scrollTo({
