@@ -66,7 +66,7 @@ function createMovieDetailsMarkup(res) {
       <table class="modal-info_table">
         <tr>
           <th>Vote / Votes</th>
-          <td><span class="modal-table_vote">${vote_average}</span> / ${vote_count}</td>
+          <td><span class="modal-table_vote">${vote_average}</span> / <span class="modal-table_votes">${vote_count}</span></td>
         </tr>
         <tr>
           <th>Popularity</th>
