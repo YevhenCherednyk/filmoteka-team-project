@@ -10,4 +10,4 @@ import './js/team-modal/team-modal.js';
 
 import './js/modal-film-card/add-to-localStorage';
 
-import './js/scrol-to-top/scrollToTop'
+import './js/scrol-to-top/scrollToTop';
