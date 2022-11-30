@@ -92,14 +92,13 @@
 }
 
 .nav__item--margright {
-  margin-right: 39px;
+  margin-right: 40px;
 }
 
 .nav__link {
   text-decoration: none;
 
-  font-size: 12px;
-  line-height: 14px;
+  line-height: 1.17;
 
   color: var(--light-txt-color);
 }
@@ -121,7 +120,7 @@
   justify-content: center;
   align-items: center;
 
-  padding-bottom: 20px;
+  padding-bottom: 45px;
 }
 
 .search-form {
@@ -135,7 +134,7 @@
 
 .form__input {
   width: 100%;
-  max-width: 394px;
+  width: 280px;
 
   display: block;
   background: transparent;
@@ -156,11 +155,10 @@
 
 .form__input::placeholder {
   color: var(--light-txt-color);
-  font-family: 'Roboto';
-  font-style: normal;
+ 
   font-weight: 400;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 1.14;
 }
 
 .search-bth {
@@ -187,8 +185,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 16px;
-  padding-bottom: 45px;
+  line-height: 1.14;
 
 
   color: var(--attention-txt-color);
