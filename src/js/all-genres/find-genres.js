@@ -1,6 +1,10 @@
 export default function findGenres(genres, genreIds) {
   const genresArray = [];
 
+  if (!genreIds) {
+    return 'Other';
+  }
+
   for (let id of genreIds) {
     let item = genres.genres.find(genre => genre.id === id);
     if (item == undefined) {

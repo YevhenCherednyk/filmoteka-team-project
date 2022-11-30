@@ -97,8 +97,6 @@ window.addEventListener('load', () => {
 async function markupRenderer() {
   const genres = await GetMovies.searchGenres();
   const trendings = await GetMovies.searchTrendingFilms();
-  console.log(trendings);
-  console.log(genres);
   const markup = markupCard(trendings.results, genres);
   container.innerHTML = markup;
   // ====== Добавил Толик Шулика =========
