@@ -39,10 +39,10 @@
 
     // border: 2px solid tomato;
     border-radius: 5px;
-    padding: 10px 10px 0;
+    padding: 10px 10px;
 
     @media screen and (min-width: 1280px) {
-        padding: 15px 15px 0;
+        padding: 15px 15px;
         }
 
     background-color: var(--header-background-color);
@@ -148,7 +148,7 @@
 
 .team__card {
     background-color: var(--footer-background-color);
-    max-width: 350px;
+    max-width: 300px;
     box-shadow: 0px 2px 1px rgb(0 0 0 / 20%),
         0px 1px 1px rgb(0 0 0 / 14%),
         0px 1px 3px rgb(0 0 0 / 12%);
@@ -156,6 +156,7 @@
 
     margin-left: auto;
     margin-right: auto;
+    padding-top: 5px;
 
     @media screen and (max-width: 767px) {
         margin-bottom: 20px;
@@ -182,7 +183,7 @@
     }
 
     @media screen and (min-width: 1280px) {
-        max-width: 300px;
+        max-width: 250px;
         margin: 0;
 
         // margin: 0 15px;
