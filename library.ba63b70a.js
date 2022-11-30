@@ -1,2 +1,0 @@
-const e={modalCloseBtn:document.querySelector("[data-modal-close]"),modalOpenBtn:document.querySelector("#open-modal-team"),backdrop:document.querySelector("#team-modal")};function o(){document.body.classList.toggle("modal-is-open"),e.backdrop.classList.toggle("is-hidden")}e.modalOpenBtn.addEventListener("click",o),e.modalCloseBtn.addEventListener("click",o);
-//# sourceMappingURL=library.ba63b70a.js.map
