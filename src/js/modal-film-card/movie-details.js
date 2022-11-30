@@ -1,4 +1,5 @@
 import API from '../api-service/fetch-movie-details';
+
 import addToLocalStorage from './add-to-localStorage';
 import spinnerControls from '../spinner/spinner';
 
@@ -34,11 +35,20 @@ function onListClick(e) {
 }
 
 function createMovieDetailsMarkup(res) {
-  const { poster_path, title, vote_average, vote_count, popularity, original_title, genres, overview } = res;
-  const genresList = []
-  
+  const {
+    poster_path,
+    title,
+    vote_average,
+    vote_count,
+    popularity,
+    original_title,
+    genres,
+    overview,
+  } = res;
+  const genresList = [];
+
   for (const genre of genres) {
-    genresList.push(genre.name)
+    genresList.push(genre.name);
   }
 
   return `
@@ -68,7 +78,7 @@ function createMovieDetailsMarkup(res) {
         </tr>
         <tr>
           <th>Genre</th>
-          <td>${genresList.join(", ")}</td>
+          <td>${genresList.join(', ')}</td>
         </tr>
       </table>
       <h3 class="modal-info_about">About</h3>
@@ -85,14 +95,17 @@ function createMovieDetailsMarkup(res) {
   `;
 }
 
-function renderMovieDetailsMarkup(data) {
+function renderMovieDetailsMarkup(data, fromBackend) {
   refs.modal.innerHTML = data;
-
   const btnAddToWatchedRef = document.querySelector('#watched');
   const btnAddToQueueRef = document.querySelector('#queue');
 
-  btnAddToWatchedRef.addEventListener('click', addToLocalStorage);
-  btnAddToQueueRef.addEventListener('click', addToLocalStorage);
+  btnAddToWatchedRef.addEventListener('click', event =>
+    addToLocalStorage(event, fromBackend)
+  );
+  btnAddToQueueRef.addEventListener('click', event =>
+    addToLocalStorage(event, fromBackend)
+  );
 }
 
 function onFetchError(res) {

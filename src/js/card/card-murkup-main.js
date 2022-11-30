@@ -1,8 +1,9 @@
 import dateOptimizer from '../api-service/date-optimizer';
 import titleOptimizer from '../api-service/title-optimizer';
 import findGenres from '../all-genres/find-genres';
-
+import picturePathPlace from '../api-service/placeholder';
 export default function markupCard(data, genres) {
+  console.log(data);
   const card = data
     .map(
       ({
@@ -12,13 +13,12 @@ export default function markupCard(data, genres) {
         genre_ids,
         release_date,
         first_air_date,
-        poster_path = '../images/сard-films/movie-poster-coming-soon.jpg',
+        poster_path,
       }) => {
         return `<li class="films-list__item" data-id="${id}">
-                    <img class="films-list__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${titleOptimizer(
-          title,
-          name
-        )}" />
+                    <img class="films-list__img" src="${picturePathPlace(
+                      poster_path
+                    )}" alt="${titleOptimizer(title, name)}" />
                     <h2 class="films-list__title">${titleOptimizer(
                       title,
                       name

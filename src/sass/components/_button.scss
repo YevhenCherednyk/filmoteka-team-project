@@ -6,16 +6,16 @@
     line-height: 1.33;
     text-transform: uppercase;
 
-    cursor: pointer;
-    border: black, 1px;
+    border: 1px solid black;
     border-radius: 5px;
     color: black;
     background-color: #ffffff;
+    transition: background-color, var(--animation);
 }
 
 .modal_btn:hover,
 .modal_btn:focus {
     color: var(--light-txt-color);
     background-color: #ff6b01;
-    border: #ff6b01;
+    border-color: #ff6b01;
 }

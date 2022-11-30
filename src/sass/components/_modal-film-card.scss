@@ -8,7 +8,7 @@
     height: 100vh;
 
     background-color: rgba(0, 0, 0, 0.25);
-  }
+}
 
 .backdrop.is-hidden {
 visibility: hidden;
@@ -16,12 +16,10 @@ opacity: 0;
 pointer-events: none;
 }
 
-// .backdrop.is-hidden .modal_movie {
-// transform: translate(-50%, -50%) scale(0.5);
-// }
-
-
 .modal-box {
+    max-width: 280px;
+    height: 95vh;
+
     background-color: var(--light-txt-color);
     z-index: 5;
     margin-left: auto;
@@ -34,14 +32,18 @@ pointer-events: none;
     transform: translate(-50%, -50%) scale(1);
         
     display: flex;
+    overflow-y: auto;
 
     @media screen and (min-width: 768px) {
+        max-width: 704px;
+        height: auto;
         padding: 40px 40px;
         flex-direction:row;
     }
 
     @media screen and (min-width: 1280px) {
-        padding: 40px 36px;
+        max-width: 806px;
+        padding: 40px 12px;
     }    
 }
 
@@ -102,7 +104,7 @@ pointer-events: none;
     width: 240px;  
 
     @media screen and (min-width: 768px) {
-        width: 368px;  
+        width: 264px;  
     }
 
     @media screen and (min-width: 1280px) {
@@ -112,13 +114,20 @@ pointer-events: none;
 
 .modal-info_title {
     text-transform: uppercase;
+    font-size: 20px;
+    line-height: 1.15;
+
+    @media screen and(min-width: 1280px){
+    font-size: 30px;
+    line-height: 1.17;
+    }
 }
 
 .modal-info_table {
     width: 240px;
     
     @media screen and (min-width: 768px) {
-        width: 368px;
+        width: 264px;
     }
 
     @media screen and (min-width: 1280px) {
@@ -130,9 +139,7 @@ th {
     width: 120px;
     color: var(--card-inform-txt-color);
     text-align: left;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
+    font-weight: inherit;
 
     @media screen and (min-width: 1280px) {
         width: 150px;
@@ -144,19 +151,32 @@ td {
 }
 
 .modal-table_vote {
-    width: 36px;
+    min-width: 36px;
     height: 16px;
+    padding: 1px 10px;
     border-radius: 5px;
     color: var(--light-txt-color);
     background-color: var(--btn-background-color);
+}
+
+.modal-table_votes {
+    min-width: 36px;
+    height: 16px;
+    padding: 1px 4px;
+    border-radius: 5px;
+    background-color: var(--votes-bg-color);
+}
+
+.uppercase {
+    text-transform: uppercase;
 }
 
 .modal-info_about {
     text-transform: uppercase;
 }
 
-.uppercase {
-    text-transform: uppercase;
+.modal-info_description {
+    line-height: 1.67;
 }
 
 .modal_btnbox {
