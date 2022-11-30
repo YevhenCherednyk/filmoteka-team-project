@@ -96,6 +96,8 @@
   line-height: 1.33;
   text-transform: uppercase;
 
+  transition: background-color, var(--animation);
+
   @media screen and(min-width:768px) {
     width: 152px;
   }
