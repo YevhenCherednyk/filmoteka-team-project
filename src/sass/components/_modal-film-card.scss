@@ -113,6 +113,7 @@ pointer-events: none;
 
 .modal-info_title {
     text-transform: uppercase;
+    font-weight: 500;
     font-size: 20px;
     line-height: 1.15;
 
@@ -138,12 +139,21 @@ tbody {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    line-height: 1.1;
+
+    @media screen and (min-width: 1280px) {
+        font-weight: 500;
+        font-size: 12px;
+        }
+
+
 }
 
 th {
     width: 120px;
     color: var(--card-inform-txt-color);
     text-align: left;
+    vertical-align: top;
     font-weight: inherit;
 
     @media screen and (min-width: 1280px) {
@@ -156,18 +166,18 @@ td {
 }
 
 .modal-table_vote {
-    min-width: 36px;
-    height: 16px;
-    padding: 1px 10px;
+    min-width: 34px;
+    height: 15px;
+    padding: 1px 8px;
     border-radius: 5px;
     color: var(--light-txt-color);
     background-color: var(--btn-background-color);
 }
 
 .modal-table_votes {
-    min-width: 36px;
-    height: 16px;
-    padding: 1px 4px;
+    min-width: 34px;
+    height: 15px;
+    padding: 1px 8px;
     border-radius: 5px;
     background-color: var(--votes-bg-color);
 }
@@ -177,10 +187,16 @@ td {
 }
 
 .modal-info_about {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
     text-transform: uppercase;
+    margin-bottom: 8px;
 }
 
 .modal-info_description {
+    font-size: 12px;
+    font-weight: 500;
     line-height: 1.67;
 }
 

@@ -81,8 +81,10 @@ function createMovieDetailsMarkup(res) {
           <td>${genresList.join(', ')}</td>
         </tr>
       </table>
+      <div>
       <h3 class="modal-info_about">About</h3>
-      <p>${overview}</p>
+      <p class="modal-info_description">${overview}</p>
+      </div>
       <div class="modal_btnbox">
           <button id="watched" class="modal_btn" type="button">
             add to Watched
