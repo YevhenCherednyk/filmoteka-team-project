@@ -13,8 +13,8 @@ let movies;
 
 window.onload = () => {
   paginationRef.classList.add('hide-pagination');
-  refs.BtnWatched.classList.add('active');
-  refs.BtnQueue.classList.remove('active');
+  refs.BtnWatched.classList.add('library-filter-btn--active');
+  refs.BtnQueue.classList.remove('library-filter-btn--active');
   movies = JSON.parse(localStorage.getItem('watched'));
   const arrMovies = movies.slice(0, moviesOnPage);
   refs.libraryUl.innerHTML = createMovieLibraryMarkup(arrMovies);
@@ -24,8 +24,8 @@ window.onload = () => {
 
 refs.BtnWatched.addEventListener('click', () => {
   paginationRef.classList.add('hide-pagination');
-  refs.BtnWatched.classList.add('active');
-  refs.BtnQueue.classList.remove('active');
+  refs.BtnWatched.classList.add('library-filter-btn--active');
+  refs.BtnQueue.classList.remove('library-filter-btn--active');
   movies = JSON.parse(localStorage.getItem('watched'));
   const arrMovies = movies.slice(0, moviesOnPage);
   refs.libraryUl.innerHTML = createMovieLibraryMarkup(arrMovies);
@@ -35,8 +35,8 @@ refs.BtnWatched.addEventListener('click', () => {
 
 refs.BtnQueue.addEventListener('click', () => {
   paginationRef.classList.add('hide-pagination');
-  refs.BtnWatched.classList.remove('active');
-  refs.BtnQueue.classList.add('active');
+  refs.BtnWatched.classList.remove('library-filter-btn--active');
+  refs.BtnQueue.classList.add('library-filter-btn--active');
   movies = JSON.parse(localStorage.getItem('queue'));
   const arrMovies = movies.slice(0, moviesOnPage);
   refs.libraryUl.innerHTML = createMovieLibraryMarkup(arrMovies);
