@@ -47,3 +47,9 @@ paginationRef.addEventListener('click', e => {
   }
   getDataAndPutToRender(PathHendler.path, page);
 });
+
+// var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+// var removed = myFish.splice(2, 0, 'drum');
+
+// myFish равен ["angel", "clown", "drum", "mandarin", "sturgeon"]
+// removed равен [], ничего не удалено
