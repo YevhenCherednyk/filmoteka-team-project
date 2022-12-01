@@ -11,11 +11,3 @@ export default function genresList(genres) {
 
   return genreList.join(', ');
 }
-
-// if (genreList.length === 0) {
-//   genreList.push('Other');
-// }
-// на;
-// if (!genreList.length) {
-//   genreList.push('Other');
-// }

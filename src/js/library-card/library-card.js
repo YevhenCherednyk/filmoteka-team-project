@@ -12,22 +12,34 @@ const moviesOnPage = 20;
 let movies;
 
 window.onload = () => {
+  paginationRef.classList.add('hide-pagination');
+  refs.BtnWatched.classList.add("active");
+  refs.BtnQueue.classList.remove("active");
   movies = JSON.parse(localStorage.getItem('watched'));
-  refs.libraryUl.innerHTML = createMovieLibraryMarkup(movies);
+  const arrMovies = movies.slice(0, moviesOnPage);
+  refs.libraryUl.innerHTML = createMovieLibraryMarkup(arrMovies);
   const numberOfPages = Math.ceil(movies.length / moviesOnPage);
   paginationManager(1, numberOfPages);
 };
 
 refs.BtnWatched.addEventListener('click', () => {
+  paginationRef.classList.add('hide-pagination');
+  refs.BtnWatched.classList.add("active");
+  refs.BtnQueue.classList.remove("active");
   movies = JSON.parse(localStorage.getItem('watched'));
-  refs.libraryUl.innerHTML = createMovieLibraryMarkup(movies);
+  const arrMovies = movies.slice(0, moviesOnPage);
+  refs.libraryUl.innerHTML = createMovieLibraryMarkup(arrMovies);
   const numberOfPages = Math.ceil(movies.length / moviesOnPage);
   paginationManager(1, numberOfPages);
 });
 
 refs.BtnQueue.addEventListener('click', () => {
+  paginationRef.classList.add('hide-pagination');
+  refs.BtnWatched.classList.remove("active");
+  refs.BtnQueue.classList.add("active");
   movies = JSON.parse(localStorage.getItem('queue'));
-  refs.libraryUl.innerHTML = createMovieLibraryMarkup(movies);
+  const arrMovies = movies.slice(0, moviesOnPage);
+  refs.libraryUl.innerHTML = createMovieLibraryMarkup(arrMovies);
   const numberOfPages = Math.ceil(movies.length / moviesOnPage);
   paginationManager(1, numberOfPages);
 });
@@ -45,11 +57,21 @@ paginationRef.addEventListener('click', e => {
   } else {
     page = e.target.innerText;
   }
-  getDataAndPutToRender(PathHendler.path, page);
+
+  const currentPageMovies = [];
+  const startIterator = page * moviesOnPage - moviesOnPage;
+  const endIterator = startIterator + moviesOnPage;
+  for (let i = startIterator; i < endIterator; i +=1) {
+    if (!movies[i]) {
+      break;
+    }
+    currentPageMovies.push(movies[i])
+  }
+  refs.libraryUl.innerHTML = createMovieLibraryMarkup(currentPageMovies);
+  const numberOfPages = Math.ceil(movies.length / moviesOnPage);
+  paginationManager(parseInt(page), numberOfPages);
+  window.scrollTo({
+    top: 270,
+    behavior: 'smooth',
+  });
 });
-
-// var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
-// var removed = myFish.splice(2, 0, 'drum');
-
-// myFish равен ["angel", "clown", "drum", "mandarin", "sturgeon"]
-// removed равен [], ничего не удалено
