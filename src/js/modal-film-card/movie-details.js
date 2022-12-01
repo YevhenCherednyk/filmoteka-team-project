@@ -2,33 +2,28 @@ import API from '../api-service/fetch-movie-details';
 
 import { addToLocalStorage } from './add-to-localStorage';
 import spinnerControls from '../spinner/spinner';
+import { toggleModalMovie } from '../modal_oc';
 
 const refs = {
   filmList: document.querySelector('.films-list'),
-  backdrop: document.querySelector('[data-modal]'),
   modal: document.querySelector('.modal_movie'),
-  modalCloseBtn: document.querySelector('button.btn-close'),
-  modalPoster: document.querySelector('.modal_poster'),
-  modalInfo: document.querySelector('.modal-info'),
 };
 
 refs.filmList.addEventListener('click', onListClick);
-refs.modalCloseBtn.addEventListener('click', toggleModal);
 
 function onListClick(e) {
   if (e.target.parentElement.nodeName !== 'LI') {
     return;
   }
 
-  // renderMainMarkup();
-  spinnerControls.showSpinner();
-
   const currentMovieId = e.target.parentElement.dataset.id;
 
+  spinnerControls.showSpinner();
   API.fetchMovieDetails(currentMovieId)
     .then(res => {
+      console.log(res);
       renderMovieDetailsMarkup(createMovieDetailsMarkup(res), res);
-      toggleModal();
+      toggleModalMovie();
       spinnerControls.hideSpinner();
     })
     .catch(onFetchError);
@@ -66,7 +61,7 @@ function createMovieDetailsMarkup(res) {
       <table class="modal-info_table">
         <tr>
           <th>Vote / Votes</th>
-          <td><span class="modal-table_vote">${vote_average}</span> / <span class="modal-table_votes">${vote_count}</span></td>
+          <td><span class="modal-table_vote">${vote_average.toFixed(1)}</span> / <span class="modal-table_votes">${vote_count}</span></td>
         </tr>
         <tr>
           <th>Popularity</th>
@@ -81,8 +76,10 @@ function createMovieDetailsMarkup(res) {
           <td>${genresList.join(', ')}</td>
         </tr>
       </table>
+      <div>
       <h3 class="modal-info_about">About</h3>
       <p>${overview}</p>
+      </div>
       <div class="modal_btnbox">
           <button id="watched" class="modal_btn" type="button">
             add to Watched
@@ -109,14 +106,9 @@ function renderMovieDetailsMarkup(data, fromBackend) {
 }
 
 function onFetchError(res) {
-  toggleModal();
+  toggleModalMovie();
   clearModal();
   spinnerControls.hideSpinner();
-}
-
-function toggleModal() {
-  document.body.classList.toggle('modal-is-open');
-  refs.backdrop.classList.toggle('is-hidden');
 }
 
 function clearModal() {
