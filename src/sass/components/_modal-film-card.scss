@@ -221,10 +221,10 @@ td {
 .modal-box__movieTrailer {
     position: absolute;
     top: 40px;
-    left: 40px;
-    right: 40px;
-    bottom: 40px;
-
+    left: 20px;
+    right: 20px;
+    // bottom: 40px;
+    
     display: none;
     justify-content: center;
     align-items: center;
@@ -236,5 +236,19 @@ td {
     & iframe {
         width: 100%;
         height: 100%;
+    }
+
+    @media screen and (min-width: 768px) {
+        top: 40px;
+        left: 20px;
+        right: 20px;
+        bottom: 40px;
+    }
+    
+    @media screen and (min-width: 1280px) {
+        top: 40px;
+        left: 12px;
+        right: 12px;
+        bottom: 40px;
     }
 }
