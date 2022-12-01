@@ -72,7 +72,7 @@ function createMovieDetailsMarkup(res) {
       />
       <button class="movieTrailerPlayBtn hide" type="button" data-id="${id}" data-modalOpenBtn="movieTrailer">
         <svg class="movieTrailerPlayIcon" width="60" height="60">
-          <use href="src/images/svg/youtube.svg"></use>
+          <use href="./icons.svg#youtube"></use>
         </svg>
       </button>
     </div>
@@ -81,7 +81,9 @@ function createMovieDetailsMarkup(res) {
       <table class="modal-info_table">
         <tr>
           <th>Vote / Votes</th>
-          <td><span class="modal-table_vote">${vote_average.toFixed(1)}</span> / <span class="modal-table_votes">${vote_count}</span></td>
+          <td><span class="modal-table_vote">${vote_average.toFixed(
+            1
+          )}</span> / <span class="modal-table_votes">${vote_count}</span></td>
         </tr>
         <tr>
           <th>Popularity</th>
