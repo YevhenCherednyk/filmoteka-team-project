@@ -17,5 +17,4 @@ paginationRef.addEventListener('click', e => {
     page = e.target.innerText;
   }
   getDataAndPutToRender(PathHendler.path, page);
-  console.log(PathHendler.path);
 });
