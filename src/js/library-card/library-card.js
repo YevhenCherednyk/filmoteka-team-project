@@ -3,8 +3,8 @@ import paginationManager from '../pagination/paginationManager';
 
 const refs = {
   libraryUl: document.querySelector('#library'),
-  BtnWatched: document.querySelector('#watched'),
-  BtnQueue: document.querySelector('#queue'),
+  BtnWatched: document.querySelector('#watched1'),
+  BtnQueue: document.querySelector('#queue1'),
 };
 
 const paginationRef = document.querySelector('.pagination');
@@ -13,8 +13,8 @@ let movies;
 
 window.onload = () => {
   paginationRef.classList.add('hide-pagination');
-  refs.BtnWatched.classList.add("active");
-  refs.BtnQueue.classList.remove("active");
+  refs.BtnWatched.classList.add('library-filter-btn--active');
+  refs.BtnQueue.classList.remove('library-filter-btn--active');
   movies = JSON.parse(localStorage.getItem('watched'));
   const arrMovies = movies.slice(0, moviesOnPage);
   refs.libraryUl.innerHTML = createMovieLibraryMarkup(arrMovies);
@@ -24,8 +24,8 @@ window.onload = () => {
 
 refs.BtnWatched.addEventListener('click', () => {
   paginationRef.classList.add('hide-pagination');
-  refs.BtnWatched.classList.add("active");
-  refs.BtnQueue.classList.remove("active");
+  refs.BtnWatched.classList.add('library-filter-btn--active');
+  refs.BtnQueue.classList.remove('library-filter-btn--active');
   movies = JSON.parse(localStorage.getItem('watched'));
   const arrMovies = movies.slice(0, moviesOnPage);
   refs.libraryUl.innerHTML = createMovieLibraryMarkup(arrMovies);
@@ -35,8 +35,8 @@ refs.BtnWatched.addEventListener('click', () => {
 
 refs.BtnQueue.addEventListener('click', () => {
   paginationRef.classList.add('hide-pagination');
-  refs.BtnWatched.classList.remove("active");
-  refs.BtnQueue.classList.add("active");
+  refs.BtnWatched.classList.remove('library-filter-btn--active');
+  refs.BtnQueue.classList.add('library-filter-btn--active');
   movies = JSON.parse(localStorage.getItem('queue'));
   const arrMovies = movies.slice(0, moviesOnPage);
   refs.libraryUl.innerHTML = createMovieLibraryMarkup(arrMovies);
@@ -61,11 +61,11 @@ paginationRef.addEventListener('click', e => {
   const currentPageMovies = [];
   const startIterator = page * moviesOnPage - moviesOnPage;
   const endIterator = startIterator + moviesOnPage;
-  for (let i = startIterator; i < endIterator; i +=1) {
+  for (let i = startIterator; i < endIterator; i += 1) {
     if (!movies[i]) {
       break;
     }
-    currentPageMovies.push(movies[i])
+    currentPageMovies.push(movies[i]);
   }
   refs.libraryUl.innerHTML = createMovieLibraryMarkup(currentPageMovies);
   const numberOfPages = Math.ceil(movies.length / moviesOnPage);
