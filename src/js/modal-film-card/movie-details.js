@@ -1,12 +1,16 @@
 import API from '../api-service/fetch-movie-details';
+import APIvideo from '../api-service/fetch-movie-video';
 
 import { addToLocalStorage } from './add-to-localStorage';
 import spinnerControls from '../spinner/spinner';
 import { toggleModalMovie } from '../modal_oc';
 
 const refs = {
+  body: document.querySelector("body"),
   filmList: document.querySelector('.films-list'),
   modal: document.querySelector('.modal_movie'),
+  posterbox: document.querySelector('.modal_posterbox'),
+  movieTrailerbox: document.querySelector('.modal-box__movieTrailer'),
 };
 
 refs.filmList.addEventListener('click', onListClick);
@@ -21,7 +25,6 @@ function onListClick(e) {
   spinnerControls.showSpinner();
   API.fetchMovieDetails(currentMovieId)
     .then(res => {
-      console.log(res);
       renderMovieDetailsMarkup(createMovieDetailsMarkup(res), res);
       toggleModalMovie();
       spinnerControls.hideSpinner();
@@ -39,8 +42,20 @@ function createMovieDetailsMarkup(res) {
     original_title,
     genres,
     overview,
+    name,
+    id,
   } = res;
   const genresList = [];
+  let poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
+  let filmTitle = title;
+
+  if (title === null) {
+    filmTitle = name;
+  }
+
+  if (poster_path === null) {
+    poster = "https://img.freepik.com/free-vector/coming-soon-display-background-with-focus-light_1017-33741.jpg";
+  }
 
   for (const genre of genres) {
     genresList.push(genre.name);
@@ -50,14 +65,19 @@ function createMovieDetailsMarkup(res) {
     <div class="modal_posterbox">
       <img
         class="modal_poster"
-        src="https://image.tmdb.org/t/p/w500${poster_path}"
-        alt="${title}"
+        src="${poster}"
+        alt="${filmTitle}"
         width="375"
         height="478"
       />
+      <button class="movieTrailerPlayBtn hide" type="button" data-id="${id}" data-modalOpenBtn="movieTrailer">
+        <svg class="movieTrailerPlayIcon" width="60" height="60">
+          <use href="src/images/svg/youtube.svg"></use>
+        </svg>
+      </button>
     </div>
     <div class="modal-info">
-      <h2 class="modal-info_title">${title}</h2>
+      <h2 class="modal-info_title">${filmTitle}</h2>
       <table class="modal-info_table">
         <tr>
           <th>Vote / Votes</th>
@@ -77,18 +97,19 @@ function createMovieDetailsMarkup(res) {
         </tr>
       </table>
       <div>
-      <h3 class="modal-info_about">About</h3>
-      <p>${overview}</p>
+        <h3 class="modal-info_about">About</h3>
+        <p class="modal-info_description">${overview}</p>
       </div>
       <div class="modal_btnbox">
-          <button id="watched" class="modal_btn" type="button">
-            add to Watched
-          </button>
-          <button id="queue" class="modal_btn" type="button">
-            add to Queue
-          </button>
-        </div>
+        <button id="watched" class="modal_btn" type="button">
+          add to Watched
+        </button>
+        <button id="queue" class="modal_btn" type="button">
+          add to Queue
+        </button>
+      </div>
     </div>
+    <div class="modal-box__movieTrailer hide"></div>
   `;
 }
 
@@ -96,6 +117,7 @@ function renderMovieDetailsMarkup(data, fromBackend) {
   refs.modal.innerHTML = data;
   const btnAddToWatchedRef = document.querySelector('#watched');
   const btnAddToQueueRef = document.querySelector('#queue');
+  // const movieTrailerPlayBtn = document.querySelector('.movieTrailerPlayBtn');
 
   btnAddToWatchedRef.addEventListener('click', event =>
     addToLocalStorage(event, fromBackend)
@@ -103,6 +125,8 @@ function renderMovieDetailsMarkup(data, fromBackend) {
   btnAddToQueueRef.addEventListener('click', event =>
     addToLocalStorage(event, fromBackend)
   );
+
+  addMovieTrailer(fromBackend.id); 
 }
 
 function onFetchError(res) {
@@ -112,52 +136,43 @@ function onFetchError(res) {
 }
 
 function clearModal() {
-  refs.modal.innerHTML = "<p>Sorry, this movie have't details yet</p>";
-}
-
-function renderMainMarkup() {
-  const mainMarkup = `
-    <div class="modal_posterbox">
-      <img
+  refs.modal.innerHTML = `<img
         class="modal_poster"
-        src="./images/сard-films/movie-poster-coming-soon.jpg"
+        src="https://img.freepik.com/free-vector/coming-soon-display-background-with-focus-light_1017-33741.jpg"
         alt="Poster"
         width="375"
         height="478"
       />
-    </div>
-    <div class="modal-info">
-      <h2 class="modal-info_title">Title</h2>
-      <table class="modal-info_table">
-        <tr>
-          <th>Vote / Votes</th>
-          <td><span class="modal-table_vote"></span> / </td>
-        </tr>
-        <tr>
-          <th>Popularity</th>
-          <td></td>
-        </tr>
-        <tr>
-          <th>Original Title</th>
-          <td class="uppercase"></td>
-        </tr>
-        <tr>
-          <th>Genre</th>
-          <td></td>
-        </tr>
-      </table>
-      <h3 class="modal-info_about">About</h3>
-      <p></p>
-      <div class="modal_btnbox">
-          <button id="watched" class="modal_btn" type="button">
-            add to Watched
-          </button>
-          <button id="queue" class="modal_btn" type="button">
-            add to Queue
-          </button>
-        </div>
-    </div>
-  `;
+      <h2 style="text-align:center"> Sorry, this movie have't details yet</h2>`
+    ;
+}
 
-  refs.modal.innerHTML = mainMarkup;
+function addMovieTrailer(id) {
+  const movieTrailerPlayBtn = document.querySelector('.movieTrailerPlayBtn');
+
+  APIvideo.fetchMovieVideo(id).then(resVideo => {
+    if (!resVideo.results.length) {
+      console.log("videoKey is underfind");
+      return;
+    }
+
+    movieTrailerPlayBtn.classList.toggle('hide');
+    movieTrailerPlayBtn.addEventListener('click', showMovieTrailer);
+
+    const videoKey = resVideo.results[0].key;
+    renderMovieTrailerBox(videoKey);
+  })
+    // .catch(console.log("ooooops"))
+}
+
+function renderMovieTrailerBox(movieKey) {
+  const movieTrailerbox = document.querySelector('.modal-box__movieTrailer');
+  const movieTrailerModalMarkup = `<iframe class="movieTrailer" width="560" height="315" src="https://www.youtube.com/embed/${movieKey}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  
+  movieTrailerbox.innerHTML = movieTrailerModalMarkup;
+}
+
+function showMovieTrailer() {
+  console.log("eeeeeeeeee")
+  refs.body.classList.toggle('showMovieTrailer');
 }
