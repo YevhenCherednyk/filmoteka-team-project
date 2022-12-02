@@ -1,4 +1,7 @@
-  let newStorageMovie = [];
+import Notiflix from 'notiflix';
+Notiflix.Notify.init({position: 'center-center'});
+
+let newStorageMovie = [];
 
 export function addToLocalStorage(event, dataMovie) {  
     const typeBtn = event.target.id
@@ -7,10 +10,14 @@ export function addToLocalStorage(event, dataMovie) {
 
     if (storageMovie) {
       const check = storageMovie.find(item => item.id === dataMovie.id);
-      if (check) { return }
+     
+      if (check) {
+        return Notiflix.Notify.warning(`Good choice! however, the movie has already been added to ${typeBtn}`);
+      }
 
         storageMovie.push(dataMovie);     
         localStorage.setItem(typeBtn, JSON.stringify(storageMovie)); 
+        Notiflix.Notify.info(`Good choice! "${dataMovie.original_title}" added to ${typeBtn}`);
         return
     }
 
