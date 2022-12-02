@@ -18,6 +18,8 @@
     color: var(--light-txt-color);
     background-color: #ff6b01;
     border-color: #ff6b01;
+    box-shadow: 0 8px 43px #ff6b0199;
+    
 }
 
 .modal_posterbox {
@@ -38,6 +40,8 @@
     color: #ff6b01;
 
     transform: translate(-50%, -50%);
+    background-color: transparent;
+    border-color: transparent;
 
     &.hide {
         display: none;
