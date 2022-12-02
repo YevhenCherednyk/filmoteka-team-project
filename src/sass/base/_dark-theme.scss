@@ -3,6 +3,11 @@
     transition: 0.3s;
 }
 
+.light-mode {
+    background-color: var(--light-txt-color);
+    transition: 0.3s;
+}
+
 .dark-mode-txt {
     color: var(--light-txt-color);
 }

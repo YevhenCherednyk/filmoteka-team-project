@@ -2,7 +2,7 @@ const refs = {
     body: document.querySelector('body'),
     // lightModeBtn: document.querySelector(''),
     // darkModeBtn: document.querySelector(''),
-    darkModeChekBox: document.querySelector('#dark-mode'),
+    darkModeChekBox: document.querySelector('#darkmode-toggle'),
     filmTitle: document.querySelector('.films-list__title'),
 }
 
@@ -37,11 +37,7 @@ let checkbox = refs.darkModeChekBox.checked;
 function makeDarkTheme() {
     if (refs.darkModeChekBox.checked) {
         refs.body.classList.add('dark-mode');
-        refs.filmTitle.classList.add('dark-mode-txt');
-        console.log(filmTitle);
     } else {
         refs.body.classList.remove('dark-mode');
-        refs.filmTitle.classList.remove('dark-mode-txt');
     }
 }
-
