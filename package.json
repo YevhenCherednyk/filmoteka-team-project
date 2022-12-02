@@ -20,7 +20,8 @@
   "dependencies": {
     "axios": "^1.2.0",
     "modern-normalize": "^1.1.0",
-    "notiflix": "^3.2.5"
+    "notiflix": "^3.2.5",
+    "throttle": "^1.0.3"
   },
   "devDependencies": {
     "@parcel/packager-raw-url": "^2.6.0",
