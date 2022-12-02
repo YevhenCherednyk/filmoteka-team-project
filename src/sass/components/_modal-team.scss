@@ -49,39 +49,40 @@
     background-position: center;
     background-repeat: repeat-y;
     background-size: cover;
+    background: linear-gradient(0deg, #000000, #B82E1F);
 
-    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
-         url(/src/images/header/background-img-mob.jpg);
+//     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+//          url(/src/images/header/background-img-mob.jpg);
     
-         @media (min-device-pixel-ratio: 2),
-         (min-resolution: 192dpi),
-         (min-resolution: 2dppx) {
-             background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/images/header/background-img-mob@2x.jpg);
-         }
+//          @media (min-device-pixel-ratio: 2),
+//          (min-resolution: 192dpi),
+//          (min-resolution: 2dppx) {
+//              background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/images/header/background-img-mob@2x.jpg);
+//          }
     
-         @media screen and (min-width: 768px) {
-            //  max-width: 768px;
-             background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/images/header/background-img-tabl.jpg);
+//          @media screen and (min-width: 768px) {
+//             //  max-width: 768px;
+//              background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/images/header/background-img-tabl.jpg);
     
-             @media (min-device-pixel-ratio: 2),
-             (min-resolution: 192dpi),
-             (min-resolution: 2dppx) {
-                 background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/images/header/background-img-tabl@2x.jpg);
-             }
-         }
+//              @media (min-device-pixel-ratio: 2),
+//              (min-resolution: 192dpi),
+//              (min-resolution: 2dppx) {
+//                  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/images/header/background-img-tabl@2x.jpg);
+//              }
+//          }
     
-         @media screen and (min-width: 1280px) {
-            //  max-width: 1600px;
-            //  height: 600px;
-            background-size: contain;
-             background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/images/modal-team/background-img-desk-modal.jpg);
+//          @media screen and (min-width: 1280px) {
+//             //  max-width: 1600px;
+//             //  height: 600px;
+//             background-size: contain;
+//              background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/images/modal-team/background-img-desk-modal.jpg);
     
-         @media (min-device-pixel-ratio: 2),
-             (min-resolution: 192dpi),
-             (min-resolution: 2dppx) {
-                 background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/images/modal-team/background-img-desk-modal@2x.jpg);
-             }
-}
+//          @media (min-device-pixel-ratio: 2),
+//              (min-resolution: 192dpi),
+//              (min-resolution: 2dppx) {
+//                  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(/src/images/modal-team/background-img-desk-modal@2x.jpg);
+//              }
+// }
 }
 
 .team__title {
