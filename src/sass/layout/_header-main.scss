@@ -85,9 +85,8 @@
     
     .iconteka__icon{
       rotate: 90deg;
-      color: var(--accent);
     }
-    }
+  }
 
 }
 
@@ -168,6 +167,11 @@
   padding-bottom: 4px;
   color: var(--accent);
 
+  &:hover,
+  &:focus {
+  border-bottom: 0.5px solid var(--accent);
+  }
+
   @media screen and(min-width: 768px) {
     width: 336px;
   }
@@ -199,7 +203,7 @@
   &:hover,
   &:focus{
     .search-icon{
-      scale: 1.7;
+      scale: 1.5;
       color: var(--accent);
     }
   }
