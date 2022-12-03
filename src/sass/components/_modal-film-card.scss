@@ -12,8 +12,6 @@
     background-color: rgba(0, 0, 0, .25);
        
     overflow: scroll;
-    
-    // pointer-events: none;
 }
 
 .backdrop.is-hidden {
@@ -33,8 +31,7 @@ pointer-events: none;
     margin-right: auto;
     padding: 40px 20px;
     border-radius: 5px;
-    box-shadow: 0 8px 43px #ff6b0199;
-    
+    box-shadow: 0 8px 43px #78635499;
 
     @media screen and (min-width: 768px) {
         max-width: 704px;
