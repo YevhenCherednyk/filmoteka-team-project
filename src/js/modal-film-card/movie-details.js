@@ -158,7 +158,6 @@ function addMovieTrailer(id) {
 
   APIvideo.fetchMovieVideo(id).then(resVideo => {
     if (!resVideo.results.length) {
-      console.log("videoKey is underfind");
       return;
     }
 
@@ -168,7 +167,6 @@ function addMovieTrailer(id) {
     const videoKey = resVideo.results[0].key;
     renderMovieTrailerBox(videoKey);
   })
-    // .catch(console.log("ooooops"))
 }
 
 function renderMovieTrailerBox(movieKey) {
@@ -179,6 +177,5 @@ function renderMovieTrailerBox(movieKey) {
 }
 
 function showMovieTrailer() {
-  console.log("eeeeeeeeee")
   refs.body.classList.toggle('showMovieTrailer');
 }

@@ -15,9 +15,7 @@ const refs = {
 const moviesApiService = new GetTrendingMovies();
 const text = refs.txt.textContent;
 
-// console.log('errorText', text);
 refs.txt.textContent = ' ';
-// console.log('moviesApiService', moviesApiService);
 
 refs.searchForm.addEventListener('submit', onSearch);
 
@@ -73,54 +71,3 @@ function clearArticlesContainer() {
 function capitalizeQuery(text) {
   return text[0].toUpperCase() + text.slice(1);
 }
-
-// function messageError() {
-//   refs.txt.classList.remove('visually-hidden');
-// }
-
-// function hidenError() {
-//   refs.txt.classList.add('visually-hidden');
-// }
-// =============Часть от Олега===================================
-// async function markupRenderer() {
-//     const genres = await moviesApiService.searchGenres();
-//     const trendings = await moviesApiService.fetchMovieSearche();
-//     console.log(trendings);
-//     console.log(genres);
-//     const markup = markupCard(trendings.results, genres);
-//     refs.articlesContainer.insertAdjacentHTML('beforeend', markup);
-//   }
-
-// ================================================
-
-// function createCard(results) {
-//   return results
-//     .map(
-//       ({
-//         poster_path,
-//         original_title,
-//         id,
-//         popularity,
-//         release_date,
-//         vote_count,
-//         genre_ids,
-//       }) => {
-//         return `
-//         <li class="films-list__item" data-id="${id}">
-//         <div class="wrapper">
-//             <img src="http://image.tmdb.org/t/p/w500${poster_path}" alt="movie"/>
-//         </div>
-//         <div class="text-wrapper">
-//             <h2 class="films-list__title">${original_title}</h2>
-//             <p class="films-list__text"><span class="films-list__ganre">'In progress'</span> &#10072; <span class="release-date">${release_date.slice(
-//               0,
-//               4
-//             )}</span>
-//             </p>
-//         </div>
-//     </li>
-//   `;
-//       }
-//     )
-//     .join('');
-// }

@@ -1,5 +1,4 @@
 import './js/api-service/trendingAndGenres';
-import './js/api-service/searchMovie';
 import './js/api-service/searcheAndRender';
 
 import './js/theme-mode/theme';

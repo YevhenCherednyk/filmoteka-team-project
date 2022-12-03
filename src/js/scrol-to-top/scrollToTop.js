@@ -22,7 +22,6 @@ function hideToTopBtn() {
 }
 
 function btnVisibility() {
-  // console.log('work');
   window.scrollY > 150
     ? scrollBtn.classList.remove('is-hidden')
     : scrollBtn.classList.add('is-hidden');
