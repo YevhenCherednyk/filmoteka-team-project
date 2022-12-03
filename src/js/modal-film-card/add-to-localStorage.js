@@ -33,11 +33,13 @@ function checkQueue (typeBtn, dataMovie) {
   if (typeBtn == 'watched') {
     let storageMovieQueue = localStorage.getItem('queue')
     storageMovieQueue = JSON.parse(storageMovieQueue);
-    for (let i = 0; i < storageMovieQueue.length; i += 1) {
+    if (storageMovieQueue) {
+      for (let i = 0; i < storageMovieQueue.length; i += 1) {
       if (storageMovieQueue[i].id === dataMovie.id) {
         storageMovieQueue.splice(i, 1);
         localStorage.setItem('queue', JSON.stringify(storageMovieQueue))
       }
+    }
     }
   }
 }
