@@ -1,4 +1,3 @@
-// import MoviesApiService from './searchMovie';
 import GetTrendingMovies from './trendingAndGenres';
 import markupCard from '../card/card-murkup-main';
 import spinnerControls from '../spinner/spinner';
