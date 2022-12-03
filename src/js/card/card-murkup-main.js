@@ -3,7 +3,6 @@ import titleOptimizer from '../api-service/title-optimizer';
 import findGenres from '../all-genres/find-genres';
 import picturePathPlace from '../api-service/placeholder';
 export default function markupCard(data, genres) {
-  console.log(data);
   const card = data
     .map(
       ({
