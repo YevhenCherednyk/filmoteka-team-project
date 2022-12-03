@@ -138,14 +138,18 @@ function onFetchError(res) {
 }
 
 function clearModal() {
-  refs.modal.innerHTML = `<img
+  refs.modal.innerHTML = `<div class="modal_posterbox">
+  <img
         class="modal_poster"
         src="https://img.freepik.com/free-vector/coming-soon-display-background-with-focus-light_1017-33741.jpg"
         alt="Poster"
         width="375"
         height="478"
       />
-      <h2 class="coming-soon-title" style="text-align:center"> Sorry, this movie have't details yet</h2>`
+      </div>
+      <div class="modal-info">
+      <h2 class="coming-soon-title"> Sorry, this movie have't details yet</h2>
+      </div>`
     ;
 }
 

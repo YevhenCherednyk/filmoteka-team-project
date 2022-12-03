@@ -64,6 +64,11 @@
   height: 24px;
 }
 
+.iconteka__icon {
+   transition: all 1s cubic-bezier(.4, 0, .2, 1);
+   color: var(--light-txt-color);
+}
+
 .logo {
   display: flex;
   gap: 10px;
@@ -71,6 +76,19 @@
   font-size: 30px;
   line-height: 1.17;
   color: var(--light-txt-color);
+
+  &:hover,
+  &:focus {
+    .logo__name{
+      color: var(--accent);
+    }
+    
+    .iconteka__icon{
+      rotate: 90deg;
+      color: var(--accent);
+    }
+    }
+
 }
 
 .logo__name {
@@ -175,6 +193,16 @@
   border: none;
   top: 0;
   right: -6px;
+
+  transition: scale var(--animation);
+
+  &:hover,
+  &:focus{
+    .search-icon{
+      scale: 1.7;
+      color: var(--accent);
+    }
+  }
 }
 
 .serch-icon {
@@ -184,6 +212,8 @@
   left: 0;
   width: 12px;
   height: 12px;
+
+  scale: 1;
 }
 
 .errorText {

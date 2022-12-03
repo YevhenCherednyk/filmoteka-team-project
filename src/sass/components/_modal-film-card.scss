@@ -12,8 +12,6 @@
     background-color: rgba(0, 0, 0, .25);
        
     overflow: scroll;
-    
-    // pointer-events: none;
 }
 
 .backdrop.is-hidden {
@@ -32,12 +30,19 @@ pointer-events: none;
     margin-left: auto;
     margin-right: auto;
     padding: 40px 20px;
+    border-radius: 5px;
+    box-shadow: 0 8px 43px #78635499;
 
     @media screen and (min-width: 768px) {
         max-width: 704px;
         height: auto;
         padding: 40px 40px;
         flex-direction:row;
+
+        position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
     }
 
     @media screen and (min-width: 1280px) {
@@ -93,6 +98,11 @@ pointer-events: none;
         height: 478px;
     }
 }
+
+.movieTrailerPlayBtn {
+    background-color: transparent;
+}
+
 
 .modal_poster {
     object-fit: cover;
