@@ -148,7 +148,7 @@ function clearModal() {
       />
       </div>
       <div class="modal-info">
-      <h2 class="modal-info_title"> Sorry, this movie have't details yet</h2>
+      <h2 class="coming-soon-title"> Sorry, this movie have't details yet</h2>
       </div>`
     ;
 }

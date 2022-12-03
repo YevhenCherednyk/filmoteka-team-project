@@ -91,11 +91,11 @@
 
 }
 
-.logo__name{
+.logo__name {
   display: none;
 
   @media screen and(min-width:768px) {
-      display: block;
+    display: block;
   }
 }
 
@@ -103,7 +103,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  
+
   margin-left: auto;
 }
 
@@ -171,6 +171,7 @@
   @media screen and(min-width: 768px) {
     width: 336px;
   }
+
   @media screen and(min-width: 1280px) {
     width: 394px;
   }
@@ -178,7 +179,7 @@
 
 .form__input::placeholder {
   color: var(--light-txt-color);
- 
+
   font-weight: 400;
   font-size: 14px;
   line-height: 1.14;
@@ -206,7 +207,7 @@
 
 .serch-icon {
   position: absolute;
-  
+
   top: 0;
   left: 0;
   width: 12px;
@@ -227,5 +228,24 @@
 
   &--topPad {
     padding-top: 20px;
+  }
+}
+
+.header-container {
+  position: relative;
+}
+
+.theme-btn-wrapper {
+  position: absolute;
+  top: 86%;
+  left: 86%;
+  transform: translate(-50%, -50%);
+
+  @media screen and(min-width: 768px) {
+    left: 91%;
+  }
+
+  @media screen and(min-width: 1280px) {
+    left: 94.7%;
   }
 }

@@ -8,12 +8,12 @@
 @import './base/common';
 @import './base/card-set';
 
-
 //components
 @import './components/button';
 @import './components/modal-film-card';
 @import './components/modal-team';
 @import './components/to-top-btn';
+@import './components/theme-mode-button';
 
 // layout
 @import './layout/header-main';
@@ -23,3 +23,4 @@
 @import './layout/pagination';
 @import './layout/spinner';
 @import './layout/footer';
+

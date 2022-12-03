@@ -25,7 +25,7 @@ pointer-events: none;
     max-width: 280px;
 
     display: flex;
-    background-color: var(--light-txt-color);
+    background-color: var(--modal-background-color);
     z-index: 5;
     margin-left: auto;
     margin-right: auto;
@@ -61,6 +61,10 @@ pointer-events: none;
 
     background-color: transparent;
     border: 0;
+}
+
+.btn-close_icon {
+    fill: var(--dark-txt-color);
 }
 
 .modal_movie {
@@ -126,6 +130,7 @@ pointer-events: none;
     font-weight: 500;
     font-size: 20px;
     line-height: 1.15;
+    color: var(--dark-txt-color);
 
     @media screen and(min-width: 1280px){
     font-size: 30px;
@@ -173,6 +178,7 @@ th {
 
 td {
     text-align: left;
+    color: var(--dark-txt-color);
 }
 
 .modal-table_vote {
@@ -202,12 +208,18 @@ td {
     line-height: 1.33;
     text-transform: uppercase;
     margin-bottom: 8px;
+    color: var(--dark-txt-color);
 }
 
 .modal-info_description {
     font-size: 12px;
     font-weight: 500;
     line-height: 1.67;
+    color: var(--dark-txt-color);
+}
+
+.coming-soon-title {
+    color: var(--dark-txt-color);
 }
 
 .modal_btnbox {
