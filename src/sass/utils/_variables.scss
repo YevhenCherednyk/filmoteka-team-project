@@ -17,7 +17,8 @@
   --arrow-pagination-color: #f7f7f7;
   --votes-bg-color: #f7f7f7;
   --btn-background-color: #FF6B01;
-  --dark-background-color: #020516eb;
+  --main-background-color: #ffffff;
+  --modal-background-color: #ffffff;
 
     // card set var
   --items: 1;
@@ -25,4 +26,14 @@
 
   // transition
   --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.darkmode {
+  --main-background-color: #040922;
+  --modal-background-color: #0b0f20;
+  --dark-txt-color: #ffffff;
+  --card-inform-txt-color: #ff6b08;
+  --votes-bg-color: #03ac9ea6;
+  --footer-background-color: #201c29;
+  transition: var(--animation);
 }

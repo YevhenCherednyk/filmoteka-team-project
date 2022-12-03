@@ -8,6 +8,7 @@ body {
   font-size: 12px;
   line-height: 1.33;
 
+  background-color: var(--main-background-color);
 
   @media screen and (min-width: 1280px){
     font-size: 20px;

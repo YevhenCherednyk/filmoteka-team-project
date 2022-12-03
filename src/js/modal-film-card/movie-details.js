@@ -145,7 +145,7 @@ function clearModal() {
         width="375"
         height="478"
       />
-      <h2 style="text-align:center"> Sorry, this movie have't details yet</h2>`
+      <h2 class="coming-soon-title" style="text-align:center"> Sorry, this movie have't details yet</h2>`
     ;
 }
 

@@ -207,12 +207,11 @@
 
 .theme-btn-wrapper {
   position: absolute;
-  top: 96%;
+  top: 86%;
   left: 86%;
   transform: translate(-50%, -50%);
 
   @media screen and(min-width: 768px) {
-    top: 107%;
     left: 91%;
   }
 

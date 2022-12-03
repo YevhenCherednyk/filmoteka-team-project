@@ -1,43 +1,33 @@
 const refs = {
     body: document.querySelector('body'),
-    // lightModeBtn: document.querySelector(''),
-    // darkModeBtn: document.querySelector(''),
-    darkModeChekBox: document.querySelector('#darkmode-toggle'),
-    filmTitle: document.querySelector('.films-list__title'),
+    darkModeToggle: document.querySelector('#darkmode-toggle'),
 }
 
-const colorMode = {
-    light: 'light-mode',
-    dark: 'dark-mode',
+let darkMode = localStorage.getItem('darkMode');
+
+const enableDarkMode = () => {
+    refs.body.classList.add('darkmode');
+    refs.darkModeToggle.checked=true;
+    localStorage.setItem('darkMode', 'enabled');
+};
+
+const disableDarkMode = () => {
+  refs.body.classList.remove('darkmode');
+  localStorage.setItem('darkMode', null);
+};
+
+if (darkMode === 'enabled') {
+  enableDarkMode();
 }
 
-// const { light, dark } = mode;
+refs.darkModeToggle.addEventListener('click', () => {
+  darkMode = localStorage.getItem('darkMode');
 
-function getThemeMode(){
-    let actualMode = localStorage.getItem('actualMode');
+  console.log('test');
 
-if (!actualMode) {
-    actualMode = light;
-    localStorage.setItem('actualMode', light)
-} else {
-    refs.body.classList.add(actualMode)
-}
-}
-
-function setThemeMode(){
-    localStorage.setItem('actualMode', )
-}
-
-// refs.lightModeBtn.addEventListener('click', setThemeMode);
-// refs.darkModeBtn.addEventListener('click', setThemeMode);
-
-refs.darkModeChekBox.addEventListener('click', makeDarkTheme);
-let checkbox = refs.darkModeChekBox.checked;
-
-function makeDarkTheme() {
-    if (refs.darkModeChekBox.checked) {
-        refs.body.classList.add('dark-mode');
-    } else {
-        refs.body.classList.remove('dark-mode');
-    }
-}
+  if (refs.darkModeToggle.checked) {
+    enableDarkMode();
+  } else {
+    disableDarkMode();
+  }
+});
