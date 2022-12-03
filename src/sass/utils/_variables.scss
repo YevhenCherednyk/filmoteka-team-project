@@ -19,6 +19,7 @@
   --btn-background-color: #FF6B01;
   --main-background-color: #ffffff;
   --modal-background-color: #ffffff;
+  --box-shadow: none;
 
     // card set var
   --items: 1;
@@ -30,10 +31,15 @@
 
 .darkmode {
   --main-background-color: #040922;
-  --modal-background-color: #0b0f20;
-  --dark-txt-color: #ffffff;
+  --modal-background-color: #050c2c;
+  --dark-txt-color: #ebeaea;
   --card-inform-txt-color: #ff6b08;
   --votes-bg-color: #03ac9ea6;
   --footer-background-color: #201c29;
   transition: var(--animation);
+  --box-shadow: 0 0 50px 5px #b20b13;
 }
+
+
+
+ 

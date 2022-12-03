@@ -1,10 +1,11 @@
 .header-library {
-  padding-bottom: 62px;
+  padding-bottom: 20px;
   position: relative;
+  box-shadow: var(--box-shadow);
 
-  @media screen and(max-width:768px) {
-    padding-bottom: 60px;
-  }
+  // @media screen and(max-width:768px) {
+    
+  // }
 
   background-repeat: no-repeat;
   background-size: cover;
