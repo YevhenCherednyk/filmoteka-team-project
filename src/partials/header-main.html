@@ -21,6 +21,22 @@
       </ul>
     </nav>
 
+    <div class="container library-filter--logout visually-hidden">
+      <p class="greetingText"></p>
+      <button id="logout" class="library-filter-btn" type="button">
+        logout
+      </button>
+    </div>
+
+    <div class="container library-filter--logedout">
+      <p class="warningText">
+        You are logged out. Please login to use the library functions!
+      </p>
+      <button id="login" class="library-filter-btn" type="button">
+        signin or login
+      </button>
+    </div>
+
     <div class="form-thumb">
       <form class="search-form">
         <input
@@ -30,7 +46,11 @@
           name="query"
           autocomplete="off"
         />
-        <button class="search-bth" type="submit" aria-label="movies search button">
+        <button
+          class="search-bth"
+          type="submit"
+          aria-label="movies search button"
+        >
           <svg class="search-icon" width="12px" height="12px">
             <use href="./images/icons.svg#icon-search"></use>
           </svg>

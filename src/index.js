@@ -10,3 +10,5 @@ import './js/modal-oc';
 import './js/modal-film-card/add-to-localStorage';
 
 import './js/scrol-to-top/scroll-to-top';
+
+import './js/firebase/firebase-main';
