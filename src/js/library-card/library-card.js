@@ -3,15 +3,15 @@ import paginationManager from '../pagination/pagination-manager';
 
 const refs = {
   libraryUl: document.querySelector('#library'),
-  BtnWatched: document.querySelector('#watched1'),
-  BtnQueue: document.querySelector('#queue1'),
+  BtnWatched: document.querySelector('#watchedFilterBtn'),
+  BtnQueue: document.querySelector('#queueFilterBtn'),
 };
 
 const paginationRef = document.querySelector('.pagination');
 const moviesOnPage = 20;
 let movies;
 
-window.onload = () => {
+export function onWindowLoad() {
   paginationRef.classList.add('hide-pagination');
   refs.BtnWatched.classList.add('library-filter-btn--active');
   refs.BtnQueue.classList.remove('library-filter-btn--active');
@@ -24,7 +24,7 @@ window.onload = () => {
   refs.libraryUl.innerHTML = createMovieLibraryMarkup(arrMovies);
   const numberOfPages = Math.ceil(movies.length / moviesOnPage);
   paginationManager(1, numberOfPages);
-};
+}
 
 refs.BtnWatched.addEventListener('click', () => {
   paginationRef.classList.add('hide-pagination');
