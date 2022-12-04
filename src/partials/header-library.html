@@ -21,26 +21,41 @@
       </ul>
     </nav>
 
-    <div class="container library-filter--logout visually-hidden">
+    <div class="library-filter--logout visually-hidden">
       <p class="greetingText"></p>
       <button id="logout" class="library-filter-btn" type="button">
-        logout
+        log out
       </button>
     </div>
     <div class="library-filter visually-hidden">
-      <button id="watchedFilterBtn" class="library-filter-btn" type="button">
+      <button
+        id="watchedFilterBtn"
+        class="library-filter-btn"
+        type="button"
+        aria-label="choose-watched"
+      >
         watched
       </button>
-      <button id="queueFilterBtn" class="library-filter-btn" type="button">
+      <button
+        id="queueFilterBtn"
+        class="library-filter-btn"
+        type="button"
+        aria-label="choose-queued"
+      >
         queue
       </button>
     </div>
-    <div class="container library-filter--logedout">
+    <div class="library-filter--logedout">
       <p class="warningText">
-        You are logged out. Please login to use the library functions!
+        You are logged out. Please log in to use the library functions!
       </p>
-      <button id="login" class="library-filter-btn" type="button">
-        signin or login
+      <button
+        id="login"
+        class="library-filter-btn"
+        type="button"
+        aria-label="sing in or log in"
+      >
+        sing in or log in
       </button>
     </div>
 

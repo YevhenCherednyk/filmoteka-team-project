@@ -111,7 +111,7 @@ function onLoadPageCkeckAccount() {
 
     refs.logoutContainer.classList.toggle('visually-hidden');
     refs.greetingText.textContent = `Hello, ${localStorage.getItem('status')}`;
-    refs.greetingText.style.color = 'green';
+    refs.greetingText.classList.toggle('visually-hidden');
   }
 }
 

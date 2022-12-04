@@ -65,7 +65,7 @@ function onLoginUserAction(event) {
       refs.form.reset();
       onModalOpenClose();
       refs.greetingText.textContent = `Hello, ${sendEmail}`;
-      refs.greetingText.style.color = 'green';
+      refs.greetingText.classList.toggle('visually-hidden');
       onWindowLoad();
     })
     .catch(onError);
@@ -82,9 +82,9 @@ function onCraetUserAction() {
     .then(userCredential => {
       var user = userCredential.user.email;
       Notiflix.Notify.success(
-        `User ${user} was successfully created. Now you can login.`
+        `User ${user} was successfully created. Now you can log in.`
       );
-      console.log(`User ${user} was successfully created. Now you can login.`);
+      console.log(`User ${user} was successfully created. Now you can log in.`);
       refs.form.reset();
       onModalOpenClose();
     })
@@ -120,7 +120,7 @@ function onLoadPageCkeckAccount() {
     }
     refs.logoutContainer.classList.toggle('visually-hidden');
     refs.greetingText.textContent = `Hello, ${localStorage.getItem('status')}`;
-    refs.greetingText.style.color = 'green';
+    refs.greetingText.classList.toggle('visually-hidden');
     onWindowLoad();
   }
 }
