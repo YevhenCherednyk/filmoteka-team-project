@@ -6,7 +6,7 @@ import spinnerControls from '../spinner/spinner';
 import { toggleModalMovie } from '../modal-oc';
 
 const refs = {
-  body: document.querySelector("body"),
+  body: document.querySelector('body'),
   filmList: document.querySelector('.films-list'),
   modal: document.querySelector('.modal_movie'),
   posterbox: document.querySelector('.modal_posterbox'),
@@ -54,7 +54,8 @@ function createMovieDetailsMarkup(res) {
   }
 
   if (poster_path === null) {
-    poster = "https://img.freepik.com/free-vector/coming-soon-display-background-with-focus-light_1017-33741.jpg";
+    poster =
+      'https://img.freepik.com/free-vector/coming-soon-display-background-with-focus-light_1017-33741.jpg';
   }
 
   for (const genre of genres) {
@@ -81,7 +82,9 @@ function createMovieDetailsMarkup(res) {
       <table class="modal-info_table">
         <tr>
           <th>Vote / Votes</th>
-          <td><span class="modal-table_vote">${vote_average.toFixed(1)}</span> / <span class="modal-table_votes">${vote_count}</span></td>
+          <td><span class="modal-table_vote">${vote_average.toFixed(
+            1
+          )}</span> / <span class="modal-table_votes">${vote_count}</span></td>
         </tr>
         <tr>
           <th>Popularity</th>
@@ -125,7 +128,7 @@ function renderMovieDetailsMarkup(data, fromBackend) {
     addToLocalStorage(event, fromBackend)
   );
 
-  addMovieTrailer(fromBackend.id); 
+  addMovieTrailer(fromBackend.id);
 }
 
 function onFetchError(res) {
@@ -154,7 +157,7 @@ function addMovieTrailer(id) {
 
   APIvideo.fetchMovieVideo(id).then(resVideo => {
     if (!resVideo.results.length) {
-      console.log("videoKey is underfind");
+      console.log('videoKey is underfind');
       return;
     }
 
@@ -165,13 +168,13 @@ function addMovieTrailer(id) {
     movieTrailerPlayBtn.setAttribute('data-videoKey', videoKey);
 
     renderMovieTrailerBox(videoKey);
-  })
+  });
 }
 
 export function renderMovieTrailerBox(movieKey) {
   const movieTrailerbox = document.querySelector('.modal-box__movieTrailer');
-  const movieTrailerModalMarkup = `<iframe class="movieTrailer" width="560" height="315" src="https://www.youtube.com/embed/${movieKey}?rel=0&showinfo=0&autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-  
+  const movieTrailerModalMarkup = `<iframe class="movieTrailer" width="560" height="315" src="https://www.youtube.com/embed/${movieKey}?rel=0&showinfo=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+
   movieTrailerbox.innerHTML = movieTrailerModalMarkup;
 }
 
