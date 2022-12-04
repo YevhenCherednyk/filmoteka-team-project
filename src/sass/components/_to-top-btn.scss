@@ -40,6 +40,10 @@
     border-radius: 35%;
     height: 35px;
     width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
 
     animation: movebtn 2s ease-in-out infinite alternate both;
     transition: all var(--animation);
@@ -65,5 +69,19 @@
 
         font-weight: 500;
         font-size: 50;
+    }
+}
+
+.to-top--style svg {
+    fill: currentColor;
+
+    @media screen and (min-width: 768px) {
+        width: 32px;
+        height: 32px;
+    }
+    
+    @media screen and (min-width: 1280px) {
+        width: 48px;
+        height: 48px;
     }
 }
