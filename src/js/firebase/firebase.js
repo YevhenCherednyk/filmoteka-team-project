@@ -38,9 +38,12 @@ refs.showLoginForm.addEventListener('click', onModalOpenClose);
 refs.form.addEventListener('submit', onLoginUserAction);
 refs.singin.addEventListener('click', onCraetUserAction);
 refs.logout.addEventListener('click', onExitUserAction);
+window.addEventListener('keydown', onEscKeyPress);
+refs.backdrop.addEventListener('click', onBackdropClick);
 
 function onModalOpenClose() {
   refs.backdrop.classList.toggle('is-hidden');
+  refs.form.reset();
 }
 
 function onLoginUserAction(event) {
@@ -119,5 +122,20 @@ function onLoadPageCkeckAccount() {
     refs.greetingText.textContent = `Hello, ${localStorage.getItem('status')}`;
     refs.greetingText.style.color = 'green';
     onWindowLoad();
+  }
+}
+
+function onEscKeyPress(e) {
+  if (refs.backdrop.classList.contains('is-hidden')) {
+    return;
+  }
+  if (e.code === 'Escape') {
+    onModalOpenClose();
+  }
+}
+
+function onBackdropClick(e) {
+  if (e.currentTarget === e.target) {
+    onModalOpenClose();
   }
 }
