@@ -81,9 +81,7 @@ function createMovieDetailsMarkup(res) {
       <table class="modal-info_table">
         <tr>
           <th>Vote / Votes</th>
-          <td><span class="modal-table_vote">${vote_average.toFixed(
-            1
-          )}</span> / <span class="modal-table_votes">${vote_count}</span></td>
+          <td><span class="modal-table_vote">${vote_average.toFixed(1)}</span> / <span class="modal-table_votes">${vote_count}</span></td>
         </tr>
         <tr>
           <th>Popularity</th>
@@ -156,20 +154,23 @@ function addMovieTrailer(id) {
 
   APIvideo.fetchMovieVideo(id).then(resVideo => {
     if (!resVideo.results.length) {
+      console.log("videoKey is underfind");
       return;
     }
 
+    const videoKey = resVideo.results[0].key;
+
     movieTrailerPlayBtn.classList.toggle('hide');
     movieTrailerPlayBtn.addEventListener('click', showMovieTrailer);
+    movieTrailerPlayBtn.setAttribute('data-videoKey', videoKey);
 
-    const videoKey = resVideo.results[0].key;
     renderMovieTrailerBox(videoKey);
   })
 }
 
-function renderMovieTrailerBox(movieKey) {
+export function renderMovieTrailerBox(movieKey) {
   const movieTrailerbox = document.querySelector('.modal-box__movieTrailer');
-  const movieTrailerModalMarkup = `<iframe class="movieTrailer" width="560" height="315" src="https://www.youtube.com/embed/${movieKey}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  const movieTrailerModalMarkup = `<iframe class="movieTrailer" width="560" height="315" src="https://www.youtube.com/embed/${movieKey}?rel=0&showinfo=0&autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
   
   movieTrailerbox.innerHTML = movieTrailerModalMarkup;
 }

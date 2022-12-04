@@ -1,3 +1,5 @@
+import { renderMovieTrailerBox } from './modal-film-card/movie-details'
+
 const refs = {
   body: document.querySelector("body"),
   // ===== for movie modal =====
@@ -8,8 +10,6 @@ const refs = {
   backdropTeam: document.querySelector("[data-modal='team']"),
   modalOpenBtnTeam: document.querySelector("[data-modalOpenBtn='team']"), 
   modalCloseBtnTeam: document.querySelector("[data-modalCloseBtn='team']"),
-
-  movieTrailerbox: document.querySelector('.modal-box__movieTrailer'),
 };
 
 window.addEventListener('keydown', onEscKeyPress);
@@ -30,6 +30,7 @@ export function toggleModalMovie() {
 function closeModalMovie() {
   if (document.body.classList.contains("showMovieTrailer")) {
     document.body.classList.remove("showMovieTrailer");
+    closeMovieTrailer();
   } else {
     refs.body.classList.remove("modal-is-open");
     refs.backdropMovie.classList.add('is-hidden');
@@ -45,6 +46,7 @@ function onBackdropClick(e) {
   if (e.currentTarget === e.target) {
     if (document.body.classList.contains("showMovieTrailer")) {
       document.body.classList.remove("showMovieTrailer");
+      closeMovieTrailer();
     } else {
       closeModal();
     }
@@ -59,6 +61,7 @@ function onEscKeyPress(e) {
   if (e.code === 'Escape') {
     if (document.body.classList.contains("showMovieTrailer")) {
       document.body.classList.remove("showMovieTrailer");
+      closeMovieTrailer();
     } else {
       closeModal();
     }
@@ -69,4 +72,11 @@ function closeModal() {
   refs.body.classList.remove("modal-is-open");
   refs.backdropTeam.classList.add('is-hidden');
   refs.backdropMovie.classList.add('is-hidden');
+}
+
+function closeMovieTrailer() {
+  const movieTrailerPlayBtn = document.querySelector('.movieTrailerPlayBtn');
+  const videokey = movieTrailerPlayBtn.dataset.videokey;
+
+  renderMovieTrailerBox(videokey);
 }
