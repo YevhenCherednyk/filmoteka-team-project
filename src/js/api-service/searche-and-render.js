@@ -1,8 +1,8 @@
-import GetTrendingMovies from './trendingAndGenres';
+import GetTrendingMovies from './trending-and-genres';
 import markupCard from '../card/card-murkup-main';
 import spinnerControls from '../spinner/spinner';
-import paginationManager from '../pagination/paginationManager';
-import PathHendler from '../pagination/RequestHendler';
+import paginationManager from '../pagination/pagination-manager';
+import PathHendler from '../pagination/request-hendler';
 
 
 const refs = {

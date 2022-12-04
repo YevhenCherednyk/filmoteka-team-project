@@ -1,6 +1,6 @@
 import dateOptimizer from '../api-service/date-optimizer';
 import titleOptimizer from '../api-service/title-optimizer';
-import genresList from './genresList';
+import genresList from './genres-list';
 import picturePathPlace from '../api-service/placeholder';
 
 export default function createMovieLibraryMarkup(data) {

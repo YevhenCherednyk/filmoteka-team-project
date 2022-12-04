@@ -1,5 +1,5 @@
-import createMovieLibraryMarkup from './createMovieLibraryMarkup';
-import paginationManager from '../pagination/paginationManager';
+import createMovieLibraryMarkup from './create-movie-library-markup';
+import paginationManager from '../pagination/pagination-manager';
 
 const refs = {
   libraryUl: document.querySelector('#library'),

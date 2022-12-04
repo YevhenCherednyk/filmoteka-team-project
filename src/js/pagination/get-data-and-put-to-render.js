@@ -1,6 +1,6 @@
-import paginationManager from './paginationManager';
+import paginationManager from './pagination-manager';
 import markupCard from '../card/card-murkup-main';
-import fetchData from './fetchData';
+import fetchData from './fetch-data';
 
 const container = document.querySelector('.films-list');
 const pathToGanres =

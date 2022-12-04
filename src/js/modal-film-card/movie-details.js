@@ -3,7 +3,7 @@ import APIvideo from '../api-service/fetch-movie-video';
 
 import { addToLocalStorage } from './add-to-localStorage';
 import spinnerControls from '../spinner/spinner';
-import { toggleModalMovie } from '../modal_oc';
+import { toggleModalMovie } from '../modal-oc';
 
 const refs = {
   body: document.querySelector("body"),

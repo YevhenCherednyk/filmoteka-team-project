@@ -1,5 +1,5 @@
-import getDataAndPutToRender from './getDataAndPutToRender';
-import PathHendler from './RequestHendler';
+import getDataAndPutToRender from './get-data-and-put-to-render';
+import PathHendler from './request-hendler';
 
 const paginationRef = document.querySelector('.pagination');
 

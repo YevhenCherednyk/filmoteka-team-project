@@ -1,12 +1,12 @@
-import './js/api-service/trendingAndGenres';
-import './js/api-service/searcheAndRender';
+import './js/api-service/trending-and-genres';
+import './js/api-service/searche-and-render';
 
 import './js/theme-mode/theme';
-import './js/pagination/paginationEventHandler';
+import './js/pagination/pagination-event-handler';
 import './js/modal-film-card/movie-details';
 
-import './js/modal_oc';
+import './js/modal-oc';
 
 import './js/modal-film-card/add-to-localStorage';
 
-import './js/scrol-to-top/scrollToTop';
+import './js/scrol-to-top/scroll-to-top';

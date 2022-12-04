@@ -2,8 +2,8 @@ const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = '19011014b9b53c4fd496d37c25f2b619';
 import spinnerControls from '../spinner/spinner';
 import markupCard from '../card/card-murkup-main';
-import paginationManager from '../pagination/paginationManager';
-import PathHendler from '../pagination/RequestHendler';
+import paginationManager from '../pagination/pagination-manager';
+import PathHendler from '../pagination/request-hendler';
 
 export class GetTrendingMovies {
   constructor() {

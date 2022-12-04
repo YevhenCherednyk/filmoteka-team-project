@@ -1,8 +1,8 @@
-import renderLinearButtons from './renderLinearButtons';
-import renderButtonsArrowRight from './renderButtonsArrowRight';
-import renderButtonsTwoArrow from './renderButtonsTwoArrow';
-import renderButtonsTwoArrowMobile from './renderButtonsTwoArrowMobile';
-import renderButtonsArrowLeft from './renderButtonsArrowLeft';
+import renderLinearButtons from './render-linear-buttons';
+import renderButtonsArrowRight from './render-buttons-arrow-right';
+import renderButtonsTwoArrow from './render-buttons-two-arrow';
+import renderButtonsTwoArrowMobile from './render-buttons-two-arrow-mobile';
+import renderButtonsArrowLeft from './render-buttons-arrow-left';
 
 export default paginationManager;
 let maxPageForLinearBatton = 7;
