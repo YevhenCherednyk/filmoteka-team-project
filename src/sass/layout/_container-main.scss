@@ -22,6 +22,15 @@
   }
 }
 
+.films-list__item{
+  transition: transform var(--animation);
+  
+    &:hover,
+    &:focus {
+      transform: scale(1.04);
+    }
+}
+
 .films-list__img {
   border-radius: 5px;
   overflow: hidden;
@@ -41,13 +50,6 @@
     width: 395px;
     margin-bottom: 12px;
   }
-
-  transition: transform var(--animation);
-
-    .films-list__item:hover &,
-    .films-list__item:focus & {
-      transform: scale(1.04);
-    }
 }
 
 .films-list__item {

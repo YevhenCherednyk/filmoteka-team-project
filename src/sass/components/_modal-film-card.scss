@@ -31,7 +31,7 @@ pointer-events: none;
     margin-right: auto;
     padding: 40px 20px;
     border-radius: 5px;
-    box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow-card);
 
     @media screen and (min-width: 768px) {
         max-width: 704px;
