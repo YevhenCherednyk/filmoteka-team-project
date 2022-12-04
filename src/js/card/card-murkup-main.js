@@ -18,6 +18,7 @@ export default function markupCard(data, genres) {
                     <img class="films-list__img" src="${picturePathPlace(
                       poster_path
                     )}" alt="${titleOptimizer(title, name)}" />
+                    <div class="film-list__data">
                     <h2 class="films-list__title">${titleOptimizer(
                       title,
                       name
@@ -28,8 +29,8 @@ export default function markupCard(data, genres) {
                     )}</span> <span class="films-list__info">&#10072;</span> <span class="films-list__info release-date">${dateOptimizer(
           release_date,
           first_air_date
-        )}</span>
-            </li>`;
+        )}</span></div>
+        </li>`;
       }
     )
     .join('');
