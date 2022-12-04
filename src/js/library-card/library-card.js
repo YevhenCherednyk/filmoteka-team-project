@@ -16,6 +16,10 @@ window.onload = () => {
   refs.BtnWatched.classList.add('library-filter-btn--active');
   refs.BtnQueue.classList.remove('library-filter-btn--active');
   movies = JSON.parse(localStorage.getItem('watched'));
+  if (!movies) {
+    refs.libraryUl.innerHTML = '';
+    return;
+  }
   const arrMovies = movies.slice(0, moviesOnPage);
   refs.libraryUl.innerHTML = createMovieLibraryMarkup(arrMovies);
   const numberOfPages = Math.ceil(movies.length / moviesOnPage);
@@ -27,6 +31,10 @@ refs.BtnWatched.addEventListener('click', () => {
   refs.BtnWatched.classList.add('library-filter-btn--active');
   refs.BtnQueue.classList.remove('library-filter-btn--active');
   movies = JSON.parse(localStorage.getItem('watched'));
+  if (!movies) {
+    refs.libraryUl.innerHTML = '';
+    return;
+  }
   const arrMovies = movies.slice(0, moviesOnPage);
   refs.libraryUl.innerHTML = createMovieLibraryMarkup(arrMovies);
   const numberOfPages = Math.ceil(movies.length / moviesOnPage);
@@ -38,6 +46,10 @@ refs.BtnQueue.addEventListener('click', () => {
   refs.BtnWatched.classList.remove('library-filter-btn--active');
   refs.BtnQueue.classList.add('library-filter-btn--active');
   movies = JSON.parse(localStorage.getItem('queue'));
+  if (!movies) {
+    refs.libraryUl.innerHTML = '';
+    return;
+  }
   const arrMovies = movies.slice(0, moviesOnPage);
   refs.libraryUl.innerHTML = createMovieLibraryMarkup(arrMovies);
   const numberOfPages = Math.ceil(movies.length / moviesOnPage);
