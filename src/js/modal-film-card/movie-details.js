@@ -119,7 +119,6 @@ function renderMovieDetailsMarkup(data, fromBackend) {
   refs.modal.innerHTML = data;
   const btnAddToWatchedRef = document.querySelector('#watched');
   const btnAddToQueueRef = document.querySelector('#queue');
-  // const movieTrailerPlayBtn = document.querySelector('.movieTrailerPlayBtn');
 
   btnAddToWatchedRef.addEventListener('click', event =>
     addToLocalStorage(event, fromBackend)
@@ -148,9 +147,8 @@ function clearModal() {
       />
       </div>
       <div class="modal-info">
-      <h2 class="coming-soon-title"> Sorry, this movie have't details yet</h2>
-      </div>`
-    ;
+      <h2 class="modal-info_title"> Sorry, this movie have't details yet</h2>
+      </div>`;
 }
 
 function addMovieTrailer(id) {

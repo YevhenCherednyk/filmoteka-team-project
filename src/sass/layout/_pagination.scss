@@ -1,7 +1,5 @@
 .pagination {
-  // width: 280px;
   width: 100%;
-  // justify-content: space-between;
   justify-content: center;
   gap: 15px;
   display: flex;
@@ -12,9 +10,6 @@
   margin-right: auto;
   background-color: transparent;
   @media screen and (min-width: 768px) {
-    // justify-content: center;
-    // gap: 15px;
-    // width: 100%;
     margin-top: 60px;
   }
 }

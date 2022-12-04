@@ -11,12 +11,6 @@
 }
 
 .footer__container {
-    // width: 100%;
-    // margin: 0 auto;
-    // padding-left: 20px;
-    // padding-right: 20px;
-    // background-color: var(--footer-background-color);
-
     font-size: 14px;
     font-weight: 400;
     line-height: 1.14;
@@ -33,7 +27,6 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        // flex-direction: column;
 
         font-size: 16px;
         line-height: 1.19;
@@ -90,4 +83,3 @@
 .footer__credits--logo{
     display: inline-block;
 }
-

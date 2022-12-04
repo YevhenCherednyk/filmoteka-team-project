@@ -12,6 +12,8 @@
     transition: 0.3s;
     margin-top: 15px;
 
+    z-index: 0;
+
     @media screen and (min-width: 768px) {
         margin-top: 0px;
         }

@@ -1,5 +1,3 @@
-// import throttle from "lodash.throttle";
-
 const scrollBtn = document.querySelector('.to-top');
 const filmListRef = document.querySelector('.films-list');
 
@@ -12,8 +10,6 @@ if (scrollBtn)
   });
 
 filmListRef.addEventListener('click', hideToTopBtn);
-
-// document.addEventListener('scroll', throttle(btnVisibility, 500));
 
 document.addEventListener('scroll', btnVisibility);
 

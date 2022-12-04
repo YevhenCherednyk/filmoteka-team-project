@@ -1,10 +1,9 @@
 import GetTrendingMovies from './trendingAndGenres';
 import markupCard from '../card/card-murkup-main';
 import spinnerControls from '../spinner/spinner';
-// ====== Добавил Толик Шулика =========
 import paginationManager from '../pagination/paginationManager';
 import PathHendler from '../pagination/RequestHendler';
-// ====== Добавил Толик Шулика =========
+
 
 const refs = {
   searchForm: document.querySelector('.search-form'),
@@ -21,11 +20,10 @@ refs.searchForm.addEventListener('submit', onSearch);
 
 async function onSearch(e) {
   e.preventDefault();
-  // ====== Добавил Толик Шулика =========
+ 
   const divPaginationRef = document.querySelector('.pagination');
   divPaginationRef.classList.add('hide-pagination');
-  // ====== Добавил Толик Шулика =========
-
+ 
   moviesApiService.query = e.currentTarget.elements.query.value;
 
   const genres = await moviesApiService.searchGenres();
@@ -49,10 +47,9 @@ async function onSearch(e) {
   refs.txt.textContent = `Search result for: ${capitalizeQuery(
     moviesApiService.query
   )}`;
-  // ====== Добавил Толик Шулика =========
+  
   paginationManager(searchedMovies.page, searchedMovies.total_pages);
   PathHendler.path = moviesApiService.GetMovieSearcPath();
-  // ====== Добавил Толик Шулика =========
 }
 
 function appendHitsMarkup(results, genres) {
@@ -60,7 +57,6 @@ function appendHitsMarkup(results, genres) {
     'beforeend',
     markupCard(results, genres)
   );
-  // message.hidenError();
   spinnerControls.hideSpinner();
 }
 
