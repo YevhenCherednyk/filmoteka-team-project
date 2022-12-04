@@ -12,12 +12,17 @@ const refs = {
   posterbox: document.querySelector('.modal_posterbox'),
   movieTrailerbox: document.querySelector('.modal-box__movieTrailer'),
 };
+let alt = null;
 
 refs.filmList.addEventListener('click', onListClick);
 
 function onListClick(e) {
   if (e.target.parentElement.nodeName !== 'LI') {
     return;
+  }
+
+  if (e.target.parentElement.nodeName !== 'IMG') {
+    alt = e.target.getAttribute('alt');
   }
 
   const currentMovieId = e.target.parentElement.dataset.id;
@@ -28,6 +33,7 @@ function onListClick(e) {
       renderMovieDetailsMarkup(createMovieDetailsMarkup(res), res);
       toggleModalMovie();
       spinnerControls.hideSpinner();
+      checkAlt(res);
     })
     .catch(onFetchError);
 }
@@ -138,18 +144,20 @@ function onFetchError(res) {
 }
 
 function clearModal() {
-  refs.modal.innerHTML = `<div class="modal_posterbox">
-  <img
+  refs.modal.innerHTML = `
+    <div class="modal_posterbox">
+      <img
         class="modal_poster"
         src="https://img.freepik.com/free-vector/coming-soon-display-background-with-focus-light_1017-33741.jpg"
         alt="Poster"
         width="375"
         height="478"
       />
-      </div>
-      <div class="modal-info">
+    </div>
+    <div class="modal-info">
       <h2 class="modal-info_title"> Sorry, this movie have't details yet</h2>
-      </div>`;
+    </div>
+    <div class="modal-box__movieTrailer hide"></div>`;
 }
 
 function addMovieTrailer(id) {
@@ -157,10 +165,9 @@ function addMovieTrailer(id) {
 
   APIvideo.fetchMovieVideo(id).then(resVideo => {
     if (!resVideo.results.length) {
-      console.log('videoKey is underfind');
+      // console.log('videoKey is underfind');
       return;
-    }
-
+    } else {
     const videoKey = resVideo.results[0].key;
 
     movieTrailerPlayBtn.classList.toggle('hide');
@@ -168,6 +175,7 @@ function addMovieTrailer(id) {
     movieTrailerPlayBtn.setAttribute('data-videoKey', videoKey);
 
     renderMovieTrailerBox(videoKey);
+    }
   });
 }
 
@@ -180,4 +188,10 @@ export function renderMovieTrailerBox(movieKey) {
 
 function showMovieTrailer() {
   refs.body.classList.toggle('showMovieTrailer');
+}
+
+function checkAlt(res) {
+  if (res.title !== alt) {
+    clearModal();
+  }
 }
