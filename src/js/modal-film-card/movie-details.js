@@ -173,7 +173,7 @@ function addMovieTrailer(id) {
 
 export function renderMovieTrailerBox(movieKey) {
   const movieTrailerbox = document.querySelector('.modal-box__movieTrailer');
-  const movieTrailerModalMarkup = `<iframe class="movieTrailer" width="560" height="315" src="https://www.youtube.com/embed/${movieKey}?rel=0&showinfo=0&autoplay=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+  const movieTrailerModalMarkup = `<iframe class="movieTrailer" width="560" height="315" src="https://www.youtube.com/embed/${movieKey}?rel=0&showinfo=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
 
   movieTrailerbox.innerHTML = movieTrailerModalMarkup;
 }
