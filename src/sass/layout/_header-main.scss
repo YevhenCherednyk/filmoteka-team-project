@@ -125,6 +125,11 @@
   line-height: 1.17;
 
   color: var(--light-txt-color);
+  transition: color, var(--animation);
+
+  &:hover {  
+        color: var(--accent);
+      }
 }
 
 .nav__link--current::after {
