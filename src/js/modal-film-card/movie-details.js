@@ -23,6 +23,7 @@ function onListClick(e) {
   const currentMovieId = e.target.parentElement.dataset.id;
 
   spinnerControls.showSpinner();
+
   API.fetchMovieDetails(currentMovieId)
     .then(res => {
       renderMovieDetailsMarkup(createMovieDetailsMarkup(res), res);
@@ -127,6 +128,22 @@ function renderMovieDetailsMarkup(data, fromBackend) {
   btnAddToQueueRef.addEventListener('click', event =>
     addToLocalStorage(event, fromBackend)
   );
+
+  let filmId = fromBackend.id;
+  if (localStorage.getItem('queue')) {
+    let storageIdCheckQueue = JSON.parse(localStorage.getItem('queue'));
+    if (storageIdCheckQueue.find(item => item.id === filmId)) {
+      btnAddToQueueRef.textContent = 'remove from queued';
+      btnAddToQueueRef.classList.add('modal_btn--selected');
+    }
+  }
+  if (localStorage.getItem('watched')) {
+    let storageIdCheckWatched = JSON.parse(localStorage.getItem('watched'));
+    if (storageIdCheckWatched.find(item => item.id === filmId)) {
+      btnAddToWatchedRef.textContent = 'remove from watched';
+      btnAddToWatchedRef.classList.add('modal_btn--selected');
+    }
+  }
 
   addMovieTrailer(fromBackend.id);
 }
