@@ -2,7 +2,6 @@ import { renderMovieTrailerBox } from './modal-film-card/movie-details';
 // ===== for new rendering =====
 import createMovieLibraryMarkup from './library-card/create-movie-library-markup';
 import paginationManager from './pagination/pagination-manager';
-import { onWindowLoad } from './library-card/library-card';
 
 const refs = {
   body: document.querySelector('body'),
@@ -16,10 +15,6 @@ const refs = {
   modalCloseBtnTeam: document.querySelector("[data-modalCloseBtn='team']"),
   // ===== for new rendering =====
 };
-
-const paginationRef = document.querySelector('.pagination');
-const moviesOnPage = 20;
-let movies;
 
 window.addEventListener('keydown', onEscKeyPress);
 // ===== for movie modal =====
@@ -42,8 +37,30 @@ function closeModalMovie() {
     closeMovieTrailer();
   } else {
     if (document.querySelector('.library-filter')) {
-      onWindowLoad()
-          }
+      const paginationRef = document.querySelector('.pagination');
+      const moviesOnPage = 20;
+      let movies;
+      paginationRef.classList.add('hide-pagination');
+      document
+        .querySelector('#watchedFilterBtn')
+        .classList.add('library-filter-btn--active');
+      const queueStatus = document.querySelector('#queueFilterBtn').classList;
+      if (queueStatus.contains('library-filter-btn--active')) {
+        document
+          .querySelector('#queueFilterBtn')
+          .classList.remove('library-filter-btn--active');
+      }
+      movies = JSON.parse(localStorage.getItem('watched'));
+      if (!movies) {
+        refs.libraryUl.innerHTML = '';
+        return;
+      }
+      const arrMovies = movies.slice(0, moviesOnPage);
+      document.querySelector('#library').innerHTML =
+        createMovieLibraryMarkup(arrMovies);
+      const numberOfPages = Math.ceil(movies.length / moviesOnPage);
+      paginationManager(1, numberOfPages);
+    }
     refs.body.classList.remove('modal-is-open');
     refs.backdropMovie.classList.add('is-hidden');
   }
@@ -85,7 +102,27 @@ function closeModal() {
   refs.backdropTeam.classList.add('is-hidden');
   refs.backdropMovie.classList.add('is-hidden');
   if (document.querySelector('.library-filter')) {
-onWindowLoad();
+    const paginationRef = document.querySelector('.pagination');
+    const moviesOnPage = 20;
+    let movies;
+    paginationRef.classList.add('hide-pagination');
+    document
+      .querySelector('#watchedFilterBtn')
+      .classList.add('library-filter-btn--active');
+    const queueStatus = document.querySelector('#queueFilterBtn').classList;
+    if (queueStatus.contains('library-filter-btn--active')) {
+      document.querySelector('#queueFilterBtn').classList.remove('library-filter-btn--active');
+    }
+    movies = JSON.parse(localStorage.getItem('watched'));
+    if (!movies) {
+      refs.libraryUl.innerHTML = '';
+      return;
+    }
+    const arrMovies = movies.slice(0, moviesOnPage);
+    document.querySelector('#library').innerHTML =
+      createMovieLibraryMarkup(arrMovies);
+    const numberOfPages = Math.ceil(movies.length / moviesOnPage);
+    paginationManager(1, numberOfPages);
   }
 }
 
