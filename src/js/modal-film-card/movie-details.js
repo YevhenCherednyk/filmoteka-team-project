@@ -129,6 +129,10 @@ function renderMovieDetailsMarkup(data, fromBackend) {
     addToLocalStorage(event, fromBackend)
   );
 
+  if (!localStorage.getItem('status')) {
+    return;
+  }
+
   let filmId = fromBackend.id;
   if (localStorage.getItem('queue')) {
     let storageIdCheckQueue = JSON.parse(localStorage.getItem('queue'));

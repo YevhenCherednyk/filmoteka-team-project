@@ -4,13 +4,18 @@ Notiflix.Notify.init({ position: 'center-center' });
 let newStorageMovie = [];
 
 export function addToLocalStorage(event, dataMovie) {
+  if (!localStorage.getItem('status')) {
+    Notiflix.Notify.failure(
+      `You are logged out. Please log in to use the library functions!`
+    );
+    return;
+  }
   const typeBtn = event.target.id;
   const btnAddToWatchedRef = document.querySelector('#watched');
   const btnAddToQueueRef = document.querySelector('#queue');
 
   let storageMovie = localStorage.getItem(typeBtn);
   storageMovie = JSON.parse(storageMovie);
-  checkQueue(typeBtn, dataMovie);
 
   if (storageMovie) {
     const check = storageMovie.find(item => item.id === dataMovie.id);
