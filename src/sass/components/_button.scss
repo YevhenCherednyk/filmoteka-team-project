@@ -1,59 +1,60 @@
 .modal_btn {
-    height: 44px;
+  height: 44px;
 
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
-    text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-transform: uppercase;
 
-    border: 1px solid black;
-    border-radius: 5px;
-    color: black;
-    background-color: #ffffff;
-    transition: background-color, var(--animation);
+  border: 1px solid black;
+  border-radius: 5px;
+  color: black;
+  background-color: #ffffff;
+  transition: background-color, var(--animation);
 }
 
 .modal_btn:hover,
-.modal_btn:focus {
-    color: var(--light-txt-color);
-    background-color: #ff6b01;
-    border-color: #ff6b01;
-    box-shadow: 0 8px 43px #78635499;   
+.modal_btn:focus,
+.modal_btn--selected {
+  color: var(--light-txt-color);
+  background-color: #ff6b01;
+  border-color: #ff6b01;
+  box-shadow: 0 8px 43px #78635499;
 }
 
 .modal_posterbox {
-    position: relative;
-};
+  position: relative;
+}
 
 .movieTrailerPlayBtn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 75px;
-    height: 75px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 
-    color: #ff6b01;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  height: 75px;
 
-    transform: translate(-50%, -50%);
-    background-color: transparent;
-    border-radius: 50%;
-    opacity: 0.9;
-    transition: opacity var(--animation);
+  color: #ff6b01;
 
-    &.hide {
-        display: none;
-    }
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  border-radius: 50%;
+  opacity: 0.9;
+  transition: opacity var(--animation);
+
+  &.hide {
+    display: none;
+  }
 }
 
 .movieTrailerPlayIcon {
-    fill: currentColor;
+  fill: currentColor;
 }
 
 .movieTrailerPlayBtn:hover,
 .movieTrailerPlayBtn:focus {
-    opacity: 1;
+  opacity: 1;
 }
