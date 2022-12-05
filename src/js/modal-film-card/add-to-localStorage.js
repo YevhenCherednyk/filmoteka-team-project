@@ -24,6 +24,9 @@ export function addToLocalStorage(event, dataMovie) {
         if (storageMovie[i].id === dataMovie.id) {
           storageMovie.splice(i, 1);
           localStorage.setItem(typeBtn, JSON.stringify(storageMovie));
+          Notiflix.Notify.info(
+            `"${dataMovie.original_title}" removed from ${typeBtn}`
+          );
         }
       }
 
@@ -65,12 +68,12 @@ export function addToLocalStorage(event, dataMovie) {
 
   if (typeBtn === 'queue') {
     btnAddToQueueRef.textContent = 'remove from queued';
-    btnAddToQueueRef.classList.add('modal_btn--selected');
+    // btnAddToQueueRef.classList.add('modal_btn--selected');
   }
 
   if (typeBtn === 'watched') {
     btnAddToWatchedRef.textContent = 'remove from watched';
-    btnAddToWatchedRef.classList.add('modal_btn--selected');
+    // btnAddToWatchedRef.classList.add('modal_btn--selected');
   }
 
   newStorageMovie = [];
