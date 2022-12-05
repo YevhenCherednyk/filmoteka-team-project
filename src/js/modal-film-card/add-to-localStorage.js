@@ -29,12 +29,12 @@ export function addToLocalStorage(event, dataMovie) {
 
       if (typeBtn === 'queue') {
         btnAddToQueueRef.textContent = 'add to Queue';
-        btnAddToQueueRef.classList.remove('modal_btn--selected');
+        // btnAddToQueueRef.classList.remove('modal_btn--selected');
       }
 
       if (typeBtn === 'watched') {
         btnAddToWatchedRef.textContent = 'add to Watched';
-        btnAddToWatchedRef.classList.remove('modal_btn--selected');
+        // btnAddToWatchedRef.classList.remove('modal_btn--selected');
       }
 
       return;
@@ -46,12 +46,12 @@ export function addToLocalStorage(event, dataMovie) {
     );
     if (typeBtn === 'queue') {
       btnAddToQueueRef.textContent = 'remove from queued';
-      btnAddToQueueRef.classList.add('modal_btn--selected');
+      // btnAddToQueueRef.classList.add('modal_btn--selected');
     }
 
     if (typeBtn === 'watched') {
       btnAddToWatchedRef.textContent = 'remove from watched';
-      btnAddToWatchedRef.classList.add('modal_btn--selected');
+      // btnAddToWatchedRef.classList.add('modal_btn--selected');
     }
     checkQueue(typeBtn, dataMovie);
     return;

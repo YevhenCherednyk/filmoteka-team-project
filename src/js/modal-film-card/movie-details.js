@@ -138,14 +138,16 @@ function renderMovieDetailsMarkup(data, fromBackend) {
     let storageIdCheckQueue = JSON.parse(localStorage.getItem('queue'));
     if (storageIdCheckQueue.find(item => item.id === filmId)) {
       btnAddToQueueRef.textContent = 'remove from queued';
-      btnAddToQueueRef.classList.add('modal_btn--selected');
+      btnAddToWatchedRef.classList.toggle('modal_btn--selected');
+      btnAddToQueueRef.classList.toggle('modal_btn--selected');
     }
   }
   if (localStorage.getItem('watched')) {
     let storageIdCheckWatched = JSON.parse(localStorage.getItem('watched'));
     if (storageIdCheckWatched.find(item => item.id === filmId)) {
       btnAddToWatchedRef.textContent = 'remove from watched';
-      btnAddToWatchedRef.classList.add('modal_btn--selected');
+      btnAddToWatchedRef.classList.toggle('modal_btn--selected');
+      btnAddToQueueRef.classList.toggle('modal_btn--selected');
     }
   }
 
