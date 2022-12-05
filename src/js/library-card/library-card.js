@@ -1,5 +1,6 @@
 import createMovieLibraryMarkup from './create-movie-library-markup';
 import paginationManager from '../pagination/pagination-manager';
+export default onWindowLoad;
 
 const refs = {
   libraryUl: document.querySelector('#library'),
