@@ -41,6 +41,15 @@ function closeModalMovie() {
       const moviesOnPage = 20;
       let movies;
       paginationRef.classList.add('hide-pagination');
+      document
+        .querySelector('#watchedFilterBtn')
+        .classList.add('library-filter-btn--active');
+      const queueStatus = document.querySelector('#queueFilterBtn').classList;
+      if (queueStatus.contains('library-filter-btn--active')) {
+        document
+          .querySelector('#queueFilterBtn')
+          .classList.remove('library-filter-btn--active');
+      }
       movies = JSON.parse(localStorage.getItem('watched'));
       if (!movies) {
         refs.libraryUl.innerHTML = '';
@@ -97,6 +106,13 @@ function closeModal() {
     const moviesOnPage = 20;
     let movies;
     paginationRef.classList.add('hide-pagination');
+    document
+      .querySelector('#watchedFilterBtn')
+      .classList.add('library-filter-btn--active');
+    const queueStatus = document.querySelector('#queueFilterBtn').classList;
+    if (queueStatus.contains('library-filter-btn--active')) {
+      document.querySelector('#queueFilterBtn').classList.remove('library-filter-btn--active');
+    }
     movies = JSON.parse(localStorage.getItem('watched'));
     if (!movies) {
       refs.libraryUl.innerHTML = '';
