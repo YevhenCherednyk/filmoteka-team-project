@@ -60,21 +60,21 @@ export function addToLocalStorage(event, dataMovie) {
     return;
   }
 
-  newStorageMovie.push(dataMovie);
-  localStorage.setItem(typeBtn, JSON.stringify(newStorageMovie));
-  Notiflix.Notify.info(
-    `Good choice! "${dataMovie.original_title}" added to ${typeBtn}`
-  );
+  // newStorageMovie.push(dataMovie);
+  // localStorage.setItem(typeBtn, JSON.stringify(newStorageMovie));
+  // Notiflix.Notify.info(
+  //   `Good choice! "${dataMovie.original_title}" added to ${typeBtn}`
+  // );
 
-  if (typeBtn === 'queue') {
-    btnAddToQueueRef.textContent = 'remove from queued';
-    // btnAddToQueueRef.classList.add('modal_btn--selected');
-  }
+  // if (typeBtn === 'queue') {
+  //   btnAddToQueueRef.textContent = 'remove from queued';
+  //   // btnAddToQueueRef.classList.add('modal_btn--selected');
+  // }
 
-  if (typeBtn === 'watched') {
-    btnAddToWatchedRef.textContent = 'remove from watched';
-    // btnAddToWatchedRef.classList.add('modal_btn--selected');
-  }
+  // if (typeBtn === 'watched') {
+  //   btnAddToWatchedRef.textContent = 'remove from watched';
+  //   // btnAddToWatchedRef.classList.add('modal_btn--selected');
+  // }
 
   newStorageMovie = [];
   return;
