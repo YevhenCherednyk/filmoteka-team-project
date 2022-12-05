@@ -92,6 +92,22 @@ function closeModal() {
   refs.body.classList.remove('modal-is-open');
   refs.backdropTeam.classList.add('is-hidden');
   refs.backdropMovie.classList.add('is-hidden');
+  if (document.querySelector('.library-filter')) {
+    const paginationRef = document.querySelector('.pagination');
+    const moviesOnPage = 20;
+    let movies;
+    paginationRef.classList.add('hide-pagination');
+    movies = JSON.parse(localStorage.getItem('watched'));
+    if (!movies) {
+      refs.libraryUl.innerHTML = '';
+      return;
+    }
+    const arrMovies = movies.slice(0, moviesOnPage);
+    document.querySelector('#library').innerHTML =
+      createMovieLibraryMarkup(arrMovies);
+    const numberOfPages = Math.ceil(movies.length / moviesOnPage);
+    paginationManager(1, numberOfPages);
+  }
 }
 
 function closeMovieTrailer() {
